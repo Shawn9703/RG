@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>股息网格交易系统</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --primary-blue: #1976d2;
+            --primary-green: #2e7d32;
+            --bg-color: #f4f6f9;
+            --text-main: #2c3e50;
+            --text-sub: #7f8c8d;
+            --card-bg: #ffffff;
+            --highlight-bg: #f0fdf4;
+        }
+        body { 
+            background: var(--bg-color); 
+            font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif; 
+            margin: 0; padding: 0; padding-bottom: 24px; color: var(--text-main);
+        }
+        * { box-sizing: border-box; }
+        
+        .header-bar {
+            background: linear-gradient(135deg, #c62828, #e53935);
+            color: white; display: flex; align-items: center;
+            padding: 18px 16px; position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .header-title { flex: 1; font-size: 19px; font-weight: 700; text-align: center; letter-spacing: 1px; }
+        .header-subtitle { font-size: 11px; opacity: 0.85; margin-top: 3px; }
+        
+        .toolbar { 
+            background: var(--card-bg); padding: 12px 14px; 
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06); 
+            margin-bottom: 12px; display: flex; gap: 10px;
+            position: sticky; top: 60px; z-index: 99;
+        }
+        
+        .account-bar {
+            display: flex; gap: 16px; flex-wrap: wrap;
+            background: linear-gradient(135deg, #1e293b, #334155);
+            color: white; padding: 14px 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .account-item { display: flex; flex-direction: column; gap: 3px; min-width: 90px; }
+        .account-label { font-size: 11px; color: #94a3b8; font-weight: 500; }
+        .account-value { font-size: 18px; font-weight: 700; font-family: 'SF Mono', monospace; }
+        .account-bar .account-value { color: #f1f5f9; }
+        .search-input { 
+            flex: 1; padding: 10px 14px; border: 1.5px solid #ddd; 
+            border-radius: 10px; font-size: 14px; outline: none; transition: border-color 0.2s;
+        }
+        .search-input:focus { border-color: var(--primary-red); }
+        .btn-clear {
+            padding: 0 16px; font-size: 14px; border: 1px solid #ddd;
+            border-radius: 10px; background: white; cursor: pointer; color: #666;
+            transition: all 0.2s;
+        }
+        .btn-clear:active { background: #f0f0f0; }
+        
+        .card { 
+            background: var(--card-bg); margin: 0 12px 14px; 
+            border-radius: 14px; padding: 18px; 
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05); 
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+        .stock-info { display: flex; flex-direction: column; }
+        .stock-title { font-size: 19px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+        .stock-sub { font-size: 12px; color: var(--text-sub); display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+        .highlight { color: var(--primary-red); font-weight: 600; }
+        .hold-badge {
+            display: inline-block; background: #e8f5e9; color: var(--primary-green);
+            font-size: 11px; padding: 2px 10px; border-radius: 10px; font-weight: 500;
+        }
+        
+        .price-dashboard { 
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9); 
+            border-radius: 10px; padding: 14px; margin-bottom: 16px; 
+            display: flex; justify-content: space-between; align-items: center; 
+            border: 1px solid #e2e8f0;
+        }
+        .price-control { display: flex; align-items: center; gap: 14px; }
+        .price-btn { 
+            width: 36px; height: 36px; background: white; 
+            border: 1.5px solid #e2e8f0; border-radius: 8px; 
+            font-size: 20px; display: flex; align-items: center; justify-content: center; 
+            cursor: pointer; color: #475569; user-select: none; transition: all 0.15s; 
+        }
+        .price-btn:active { background: #e2e8f0; transform: scale(0.92); }
+        .current-price { font-size: 22px; font-weight: 700; font-family: 'SF Mono', monospace; color: #0f172a; min-width: 80px; text-align: center; }
+        .current-yield-box { text-align: right; }
+        .current-yield-label { font-size: 11px; color: var(--text-sub); margin-bottom: 2px; }
+        .current-yield-val { font-size: 20px; font-weight: 700; color: var(--primary-red); }
+        
+        .boll-container { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+        .boll-box { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 6px; text-align: center; }
+        .boll-box.month { background: #faf5ff; border-color: #e9d5ff; }
+        .boll-label { font-size: 10px; color: var(--text-sub); margin-bottom: 4px; font-weight: 500; }
+        .boll-price { font-size: 13px; font-weight: 600; color: #334155; font-family: monospace; }
+        .boll-yield { font-size: 11px; color: var(--primary-blue); margin-top: 3px; }
+        
+        .grid-section h4 { 
+            margin: 0 0 12px 0; font-size: 14px; color: #334155; 
+            border-left: 3px solid var(--primary-red); padding-left: 10px; 
+        }
+        .grid-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        .grid-table th { 
+            background: #f8fafc; padding: 8px 10px; font-weight: 600; 
+            color: var(--text-sub); border-bottom: 2px solid #e2e8f0; 
+            font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .grid-table td { padding: 10px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+        .grid-table tr:last-child td { border-bottom: none; }
+        .grid-table tr.grid-active { background: var(--highlight-bg); }
+        .grid-table tr.grid-active td:first-child { border-left: 3px solid var(--primary-green); }
+        .grid-table td.yield-col { color: var(--primary-red); font-weight: 600; }
+        .grid-table td.price-col { font-family: monospace; font-weight: 500; }
+        .grid-table td.status-col { text-align: center; width: 40px; }
+        .status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #e2e8f0; }
+        .status-dot.active { background: var(--primary-green); box-shadow: 0 0 6px rgba(46,125,50,0.4); }
+        .status-dot.current { background: var(--primary-red); box-shadow: 0 0 6px rgba(211,47,47,0.4); }
+        
+        .strategy-tip { 
+            margin-top: 14px; padding: 10px 14px; 
+            background: #fff7ed; border-radius: 8px; 
+            font-size: 12px; color: #c2410c; 
+            border: 1px dashed #fdba74; 
+            display: flex; align-items: flex-start; gap: 6px; 
+        }
+        .strategy-tip.info { background: #f0f9ff; color: #0369a1; border-color: #7dd3fc; }
+        .strategy-tip.success { background: #f0fdf4; color: #166534; border-color: #86efac; }
+        
+        .summary-bar { 
+            display: flex; gap: 20px; flex-wrap: wrap;
+            margin-top: 12px; padding-top: 12px; 
+            border-top: 1px dashed #e2e8f0; font-size: 12px; color: var(--text-sub); 
+        }
+        .summary-item { display: flex; flex-direction: column; gap: 2px; }
+        .summary-value { font-size: 14px; font-weight: 600; color: #334155; }
+        .summary-value.positive { color: var(--primary-green); }
+        .summary-value.negative { color: var(--primary-red); }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header-bar">
+            <div style="flex:1; text-align:center;">
+                <div class="header-title">📊 股息网格交易系统</div>
+                <div class="header-subtitle">高股息 + 周线布林带 共振策略</div>
+            </div>
+        </div>
+        
+        <!-- 账户总览条 -->
+        <div class="account-bar">
+            <div class="account-item">
+                <div class="account-label">证券总金额</div>
+                <div class="account-value">¥{{ formatNumber(totalAsset) }}</div>
+            </div>
+            <div class="account-item">
+                <div class="account-label">持仓市值</div>
+                <div class="account-value" style="color:var(--primary-blue);">¥{{ formatNumber(totalMarketVal) }}</div>
+            </div>
+            <div class="account-item">
+                <div class="account-label">现金</div>
+                <div class="account-value" style="color:#64748b;">¥{{ formatNumber(totalAsset - totalMarketVal) }}</div>
+            </div>
+            <div class="account-item">
+                <div class="account-label">整体仓位</div>
+                <div class="account-value" :style="totalPositionPct >= 80 ? 'color:var(--primary-red);' : 'color:var(--primary-green);'">
+                    {{ totalPositionPct.toFixed(1) }}%
+                </div>
+            </div>
+        </div>
+        
+        <div class="toolbar">
+            <input type="text" class="search-input" v-model="searchQuery" placeholder="🔍 搜索股票名称..." />
+            <button class="btn-clear" @click="searchQuery = ''">清空</button>
+        </div>
+
+        <div class="card" v-for="stock in filteredStocks" :key="stock.id">
+            <div class="card-header">
+                <div class="stock-info">
+                    <div class="stock-title">{{ stock.name }}</div>
+                    <div class="stock-sub">
+                        <span>每股分红: <span class="highlight">¥{{ stock.div.toFixed(3) }}</span></span>
+                        <span v-if="stock.hold_qty > 0" class="hold-badge">持仓 {{ stock.hold_qty }} 股</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="price-dashboard">
+                <div class="price-control">
+                    <div class="price-btn" @click="adjustPriceDown(stock)" :title="'降价' + getStep(stock)">▼</div>
+                    <div class="current-price">{{ stock.price.toFixed(getDecimals(stock)) }}</div>
+                    <div class="price-btn" @click="adjustPriceUp(stock)" :title="'加价' + getStep(stock)">▲</div>
+                </div>
+                <div class="current-yield-box">
+                    <div class="current-yield-label">当前股息率</div>
+                    <div class="current-yield-val">{{ calcYield(stock.div, stock.price) }}%</div>
+                </div>
+            </div>
+            
+            <div class="boll-container">
+                <div class="boll-box">
+                    <div class="boll-label">周BOLL上轨</div>
+                    <div class="boll-price">¥{{ stock.boll.up_price ? stock.boll.up_price.toFixed(getDecimals(stock)) : '--' }}</div>
+                    <div class="boll-yield">{{ stock.boll.up_price ? calcYield(stock.div, stock.boll.up_price) + '%' : '--' }}</div>
+                </div>
+                <div class="boll-box">
+                    <div class="boll-label">周BOLL中轨</div>
+                    <div class="boll-price">¥{{ stock.boll.mid_price ? stock.boll.mid_price.toFixed(getDecimals(stock)) : '--' }}</div>
+                    <div class="boll-yield">{{ stock.boll.mid_price ? calcYield(stock.div, stock.boll.mid_price) + '%' : '--' }}</div>
+                </div>
+                <div class="boll-box">
+                    <div class="boll-label">周BOLL下轨</div>
+                    <div class="boll-price">¥{{ stock.boll.low_price ? stock.boll.low_price.toFixed(getDecimals(stock)) : '--' }}</div>
+                    <div class="boll-yield">{{ stock.boll.low_price ? calcYield(stock.div, stock.boll.low_price) + '%' : '--' }}</div>
+                </div>
+                <div class="boll-box month">
+                    <div class="boll-label">月BOLL中轨</div>
+                    <div class="boll-price">¥{{ stock.boll_month_mid ? stock.boll_month_mid.toFixed(getDecimals(stock)) : '--' }}</div>
+                    <div class="boll-yield">{{ stock.boll_month_mid ? calcYield(stock.div, stock.boll_month_mid) + '%' : '--' }}</div>
+                </div>
+            </div>
+            
+            <div class="grid-section">
+                <h4>🎯 网格档位（价格 ≤ 现价即高亮激活）</h4>
+                <table class="grid-table" v-if="stock.grids && stock.grids.length > 0">
+                    <thead>
+                        <tr>
+                            <th style="width:40px;"></th>
+                            <th style="text-align:left;">目标股价</th>
+                            <th>对应股息率</th>
+                            <th>距现价</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(grid, idx) in stock.grids" :key="idx" :class="getGridRowClass(stock, grid)">
+                            <td class="status-col">
+                                <span class="status-dot" :class="getDotClass(stock, grid)"></span>
+                            </td>
+                            <td style="text-align:left; font-weight:500;" class="price-col">¥{{ grid.price.toFixed(getDecimals(stock)) }}</td>
+                            <td class="yield-col">{{ grid.yield.toFixed(2) }}%</td>
+                            <td :style="getDistanceStyle(stock, grid)">{{ getDistance(stock, grid) }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div v-else style="text-align:center; padding:20px; color:#94a3b8; font-size:13px;">
+                    暂无网格配置数据
+                </div>
+            </div>
+            
+            <div class="strategy-tip" v-if="parseFloat(calcYield(stock.div, stock.price)) >= 5.5">
+                <span>⚠️</span> 股息率已进入击球区(≥5.5%)，请结合BOLL下轨确认是否满足买入条件。
+            </div>
+            <div class="strategy-tip success" v-else-if="parseFloat(calcYield(stock.div, stock.price)) >= 4.5">
+                <span>👀</span> 股息率已进入观察区(≥4.5%)，关注后续走势。
+            </div>
+            <div class="strategy-tip info" v-if="getPositionPct(stock) > 25">
+                <span>📌</span> 持仓占比 {{ getPositionPct(stock).toFixed(1) }}%，注意仓位控制。
+            </div>
+            <div class="strategy-tip info" v-else-if="stock.summary && stock.summary !== '' && isNaN(parseFloat(stock.summary))">
+                <span>💡</span> {{ stock.summary }}
+            </div>
+            
+            <div class="summary-bar" v-if="stock.hold_qty > 0 || stock.market_val > 0 || stock.hold_cost > 0">
+                <div class="summary-item" v-if="stock.hold_qty > 0">
+                    <span style="font-size:11px;color:#94a3b8;">持仓数量</span>
+                    <span class="summary-value">{{ stock.hold_qty }} 股</span>
+                </div>
+                <div class="summary-item" v-if="stock.market_val > 0">
+                    <span style="font-size:11px;color:#94a3b8;">持仓市值</span>
+                    <span class="summary-value">¥{{ formatNumber(stock.market_val) }}</span>
+                </div>
+                <div class="summary-item" v-if="stock.hold_cost > 0">
+                    <span style="font-size:11px;color:#94a3b8;">持仓成本</span>
+                    <span class="summary-value">¥{{ stock.hold_cost.toFixed(getDecimals(stock)) }}</span>
+                </div>
+                <div class="summary-item" v-if="stock.hold_cost > 0 && stock.price > 0 && stock.hold_qty > 0">
+                    <span style="font-size:11px;color:#94a3b8;">浮动盈亏</span>
+                    <span class="summary-value" :class="(stock.price - stock.hold_cost) >= 0 ? 'positive' : 'negative'">
+                        {{ (stock.price - stock.hold_cost) >= 0 ? '+' : '' }}{{ formatNumber((stock.price - stock.hold_cost) * stock.hold_qty) }}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const { createApp, ref, computed } = Vue;
+        
+        // 证券账户总金额（含现金），每周更新一次即可
+        const TOTAL_ASSET = 94683;
+        
+        const STOCKS_DATA = [{"id":0,"name":"招商银行","div":2.016,"price":38.91,"boll":{"up_price":40.02,"mid_price":37.57,"low_price":35.12},"boll_month_mid":38.73,"grids":[{"price":43.8261,"yield":4.6},{"price":42.8936,"yield":4.7},{"price":42.0,"yield":4.8},{"price":41.1429,"yield":4.9},{"price":40.32,"yield":5.0},{"price":37.4721,"yield":5.38},{"price":36.6545,"yield":5.5},{"price":35.1342,"yield":5.74},{"price":34.7586,"yield":5.8},{"price":33.6,"yield":6.0}],"hold_qty":200,"market_val":7782,"hold_cost":40.194,"summary":""},{"id":1,"name":"中国平安","div":2.7,"price":53.32,"boll":{"up_price":59.58,"mid_price":53.36,"low_price":47.14},"boll_month_mid":54.02,"grids":[{"price":77.1429,"yield":3.5},{"price":72.0,"yield":3.75},{"price":67.5,"yield":4.0},{"price":51.9231,"yield":5.2},{"price":50.0,"yield":5.4},{"price":49.0909,"yield":5.5},{"price":48.2143,"yield":5.6},{"price":47.3684,"yield":5.7},{"price":46.5517,"yield":5.8},{"price":45.7627,"yield":5.9}],"hold_qty":100,"market_val":5332,"hold_cost":53.811,"summary":""},{"id":2,"name":"中国核电","div":0.18,"price":8.85,"boll":{"up_price":9.15,"mid_price":8.82,"low_price":8.49},"boll_month_mid":8.84,"grids":[{"price":6.0,"yield":3.0},{"price":5.1429,"yield":3.5},{"price":4.5,"yield":4.0},{"price":4.0,"yield":4.5},{"price":3.6,"yield":5.0},{"price":3.2727,"yield":5.5},{"price":3.0,"yield":6.0}],"hold_qty":3000,"market_val":26550,"hold_cost":8.129,"summary":""},{"id":3,"name":"国电电力","div":0.241,"price":5.02,"boll":{"up_price":5.09,"mid_price":4.77,"low_price":4.45},"boll_month_mid":4.6,"grids":[{"price":6.8857,"yield":3.5},{"price":6.4267,"yield":3.75},{"price":6.025,"yield":4.0},{"price":5.6706,"yield":4.25},{"price":5.3556,"yield":4.5},{"price":4.7255,"yield":5.1},{"price":4.6346,"yield":5.2},{"price":4.5472,"yield":5.3},{"price":4.463,"yield":5.4},{"price":4.3818,"yield":5.5}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":4,"name":"华能国际","div":0.4,"price":6.99,"boll":{"up_price":8.06,"mid_price":7.05,"low_price":6.04},"boll_month_mid":6.84,"grids":[{"price":11.4286,"yield":3.5},{"price":10.6667,"yield":3.75},{"price":10.0,"yield":4.0},{"price":9.4118,"yield":4.25},{"price":8.8889,"yield":4.5},{"price":7.0547,"yield":5.67},{"price":6.8493,"yield":5.84},{"price":6.6667,"yield":6.0},{"price":6.5574,"yield":6.1},{"price":6.3492,"yield":6.3}],"hold_qty":300,"market_val":2097,"hold_cost":7.067,"summary":"周轨还需压"},{"id":5,"name":"中远海控","div":1.0,"price":15.64,"boll":{"up_price":15.61,"mid_price":14.26,"low_price":12.92},"boll_month_mid":13.88,"grids":[{"price":28.5714,"yield":3.5},{"price":26.6667,"yield":3.75},{"price":25.0,"yield":4.0},{"price":23.5294,"yield":4.25},{"price":22.2222,"yield":4.5},{"price":13.986,"yield":7.15},{"price":13.6986,"yield":7.3},{"price":13.3333,"yield":7.5},{"price":12.987,"yield":7.7},{"price":12.8205,"yield":7.8}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":6,"name":"海尔智家","div":1.16071,"price":22.25,"boll":{"up_price":22.76,"mid_price":21.03,"low_price":19.3},"boll_month_mid":24.23,"grids":[{"price":33.1631,"yield":3.5},{"price":30.9523,"yield":3.75},{"price":29.0177,"yield":4.0},{"price":27.3108,"yield":4.25},{"price":25.7936,"yield":4.5},{"price":21.4946,"yield":5.4},{"price":20.727,"yield":5.6},{"price":20.3633,"yield":5.7},{"price":20.0122,"yield":5.8},{"price":19.6731,"yield":5.9}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":7,"name":"伊利股份","div":1.38,"price":26.26,"boll":{"up_price":27.46,"mid_price":25.59,"low_price":23.72},"boll_month_mid":26.29,"grids":[{"price":39.4286,"yield":3.5},{"price":36.8,"yield":3.75},{"price":34.5,"yield":4.0},{"price":32.4706,"yield":4.25},{"price":30.6667,"yield":4.5},{"price":25.0909,"yield":5.5},{"price":23.7931,"yield":5.8},{"price":23.0,"yield":6.0},{"price":21.2308,"yield":6.5},{"price":20.9091,"yield":6.6}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":8,"name":"中国石油","div":0.47,"price":10.85,"boll":{"up_price":12.69,"mid_price":10.72,"low_price":8.75},"boll_month_mid":9.23,"grids":[{"price":13.4286,"yield":3.5},{"price":12.5333,"yield":3.75},{"price":11.75,"yield":4.0},{"price":11.0588,"yield":4.25},{"price":10.4444,"yield":4.5},{"price":9.2157,"yield":5.1},{"price":9.0385,"yield":5.2},{"price":8.8679,"yield":5.3},{"price":8.7037,"yield":5.4},{"price":8.5455,"yield":5.5}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":9,"name":"工商银行","div":0.3103,"price":7.53,"boll":{"up_price":7.85,"mid_price":7.36,"low_price":6.87},"boll_month_mid":7.11,"grids":[{"price":8.8657,"yield":3.5},{"price":8.2747,"yield":3.75},{"price":7.7575,"yield":4.0},{"price":7.3012,"yield":4.25},{"price":6.8956,"yield":4.5},{"price":7.1333,"yield":4.35},{"price":7.0523,"yield":4.4},{"price":6.8956,"yield":4.5},{"price":6.7457,"yield":4.6},{"price":6.6021,"yield":4.7}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":10,"name":"交通银行","div":0.3247,"price":6.9,"boll":{"up_price":7.14,"mid_price":6.69,"low_price":6.24},"boll_month_mid":6.87,"grids":[{"price":9.2771,"yield":3.5},{"price":8.6587,"yield":3.75},{"price":8.1175,"yield":4.0},{"price":7.64,"yield":4.25},{"price":7.2156,"yield":4.5},{"price":6.7646,"yield":4.8},{"price":6.6265,"yield":4.9},{"price":6.494,"yield":5.0},{"price":6.3667,"yield":5.1},{"price":6.2442,"yield":5.2}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":11,"name":"双汇发展","div":1.45,"price":24.95,"boll":{"up_price":29.02,"mid_price":25.52,"low_price":22.01},"boll_month_mid":24.74,"grids":[{"price":41.4286,"yield":3.5},{"price":38.6667,"yield":3.75},{"price":36.25,"yield":4.0},{"price":34.1176,"yield":4.25},{"price":32.2222,"yield":4.5},{"price":25.5732,"yield":5.67},{"price":24.1667,"yield":6.0},{"price":23.3871,"yield":6.2},{"price":22.6562,"yield":6.4},{"price":21.9365,"yield":6.61}],"hold_qty":500,"market_val":12475,"hold_cost":24.774,"summary":""},{"id":12,"name":"云铝股份","div":1.4,"price":27.85,"boll":{"up_price":36.26,"mid_price":28.33,"low_price":20.39},"boll_month_mid":22.68,"grids":[{"price":40.0,"yield":3.5},{"price":37.3333,"yield":3.75},{"price":35.0,"yield":4.0},{"price":32.9412,"yield":4.25},{"price":31.1111,"yield":4.5},{"price":25.4545,"yield":5.5},{"price":24.5614,"yield":5.7},{"price":23.3333,"yield":6.0},{"price":22.2222,"yield":6.3},{"price":21.2121,"yield":6.6}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":13,"name":"神火股份","div":1.3,"price":27.34,"boll":{"up_price":35.1,"mid_price":27.81,"low_price":20.51},"boll_month_mid":22.79,"grids":[{"price":37.1429,"yield":3.5},{"price":34.6667,"yield":3.75},{"price":32.5,"yield":4.0},{"price":30.5882,"yield":4.25},{"price":27.7245,"yield":4.69},{"price":25.4902,"yield":5.1},{"price":23.6364,"yield":5.5},{"price":22.807,"yield":5.7},{"price":21.6667,"yield":6.0},{"price":20.6349,"yield":6.3}],"hold_qty":100,"market_val":2734,"hold_cost":23.294,"summary":""},{"id":14,"name":"中国移动","div":4.7037,"price":96.7,"boll":{"up_price":99.16,"mid_price":93.15,"low_price":87.15},"boll_month_mid":99.73,"grids":[{"price":134.3914,"yield":3.5},{"price":125.432,"yield":3.75},{"price":117.5925,"yield":4.0},{"price":110.6753,"yield":4.25},{"price":104.5267,"yield":4.5},{"price":92.2294,"yield":5.1},{"price":90.4558,"yield":5.2},{"price":88.7491,"yield":5.3},{"price":87.1056,"yield":5.4},{"price":85.5218,"yield":5.5}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":15,"name":"中国神华","div":2.01,"price":44.68,"boll":{"up_price":49.35,"mid_price":44.3,"low_price":39.25},"boll_month_mid":39.16,"grids":[{"price":57.4286,"yield":3.5},{"price":53.6,"yield":3.75},{"price":50.25,"yield":4.0},{"price":47.2941,"yield":4.25},{"price":44.6667,"yield":4.5},{"price":42.766,"yield":4.7},{"price":41.0204,"yield":4.9},{"price":39.4118,"yield":5.1},{"price":37.9245,"yield":5.3},{"price":36.5455,"yield":5.5}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":16,"name":"中国海油","div":1.45,"price":32.0,"boll":{"up_price":42.16,"mid_price":33.84,"low_price":25.53},"boll_month_mid":28.88,"grids":[{"price":41.4286,"yield":3.5},{"price":38.6667,"yield":3.75},{"price":36.25,"yield":4.0},{"price":34.1176,"yield":4.25},{"price":30.8511,"yield":4.7},{"price":29.5918,"yield":4.9},{"price":28.4314,"yield":5.1},{"price":27.3585,"yield":5.3},{"price":26.8519,"yield":5.4},{"price":26.3636,"yield":5.5}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":17,"name":"东阿阿胶","div":2.7055823,"price":54.06,"boll":{"up_price":56.92,"mid_price":50.62,"low_price":44.33},"boll_month_mid":50.75,"grids":[{"price":54.1116,"yield":5.0},{"price":49.1924,"yield":5.5},{"price":45.093,"yield":6.0},{"price":41.6243,"yield":6.5}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":18,"name":"横店东磁","div":0.98,"price":21.9,"boll":{"up_price":31.68,"mid_price":22.6,"low_price":13.52},"boll_month_mid":18.0,"grids":[{"price":24.5,"yield":4.0},{"price":21.7778,"yield":4.5},{"price":19.6,"yield":5.0},{"price":17.8182,"yield":5.5},{"price":16.3333,"yield":6.0},{"price":15.0769,"yield":6.5}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":19,"name":"中国电信","div":0.272,"price":6.27,"boll":{"up_price":6.41,"mid_price":5.87,"low_price":5.33},"boll_month_mid":6.57,"grids":[{"price":7.7714,"yield":3.5},{"price":7.2533,"yield":3.75},{"price":6.8,"yield":4.0},{"price":6.4,"yield":4.25},{"price":6.0444,"yield":4.5},{"price":5.7872,"yield":4.7},{"price":5.6082,"yield":4.85},{"price":5.44,"yield":5.0},{"price":5.2308,"yield":5.2},{"price":5.037,"yield":5.4}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""},{"id":20,"name":"沪深300","div":0.123,"price":4.573,"price_decimals":3,"boll":{"up_price":5.057,"mid_price":4.773,"low_price":4.488},"boll_month_mid":4.374,"grids":[{"price":4.573,"yield":2.69},{"price":4.390,"yield":2.8},{"price":4.207,"yield":2.92},{"price":4.024,"yield":3.06},{"price":3.841,"yield":3.2},{"price":3.658,"yield":3.36},{"price":3.476,"yield":3.54},{"price":3.293,"yield":3.74}],"hold_qty":500,"market_val":2286,"hold_cost":4.573,"summary":""},{"id":21,"name":"云南白药","div":2.602,"price":51.19,"boll":{"up_price":55.33,"mid_price":51.12,"low_price":46.91},"boll_month_mid":53.22,"grids":[{"price":52.04,"yield":5.0},{"price":47.3091,"yield":5.5},{"price":43.3667,"yield":6.0},{"price":40.0308,"yield":6.5}],"hold_qty":0,"market_val":0,"hold_cost":0,"summary":""}];
+        
+        createApp({
+            setup() {
+                const totalAsset = ref(TOTAL_ASSET);
+                const stocks = ref(STOCKS_DATA);
+                const searchQuery = ref('');
+                
+                // 持仓总市值（动态，随股价实时变）
+                const totalMarketVal = computed(() => {
+                    return stocks.value.reduce((sum, s) => {
+                        const qty = s.hold_qty || 0;
+                        const price = s.price || 0;
+                        return sum + qty * price;
+                    }, 0);
+                });
+                
+                // 整体仓位百分比
+                const totalPositionPct = computed(() => {
+                    if (totalAsset.value <= 0) return 0;
+                    return (totalMarketVal.value / totalAsset.value) * 100;
+                });
+                
+                // 单只股票占【持仓总市值】的百分比
+                const getPositionPct = (stock) => {
+                    const qty = stock.hold_qty || 0;
+                    const myVal = qty * (stock.price || 0);
+                    if (totalMarketVal.value <= 0) return 0;
+                    return (myVal / totalMarketVal.value) * 100;
+                };
+                
+                const filteredStocks = computed(() => {
+                    if (!searchQuery.value) return stocks.value;
+                    const query = searchQuery.value.toLowerCase();
+                    return stocks.value.filter(s => s.name.toLowerCase().includes(query));
+                });
+                
+                const getDecimals = (stock) => {
+                    return (stock && stock.price_decimals) ? stock.price_decimals : 2;
+                };
+                
+                const calcYield = (div, price) => {
+                    if (!price || price <= 0 || !div) return "0.00";
+                    return ((div / price) * 100).toFixed(2);
+                };
+                
+                // 步长随小数位自适应：2位→0.01，3位→0.001
+                const getStep = (stock) => {
+                    const dec = getDecimals(stock);
+                    return Math.pow(10, -dec); // dec=2→0.01, dec=3→0.001
+                };
+                
+                const adjustPrice = (stock, delta) => {
+                    const dec = getDecimals(stock);
+                    const factor = Math.pow(10, dec);
+                    const minPrice = Math.pow(10, -dec); // 2位→0.01, 3位→0.001
+                    stock.price = Math.max(minPrice, Math.round((stock.price + delta) * factor) / factor);
+                };
+                
+                const adjustPriceUp = (stock) => adjustPrice(stock, getStep(stock));
+                const adjustPriceDown = (stock) => adjustPrice(stock, -getStep(stock));
+                
+                const getGridRowClass = (stock, grid) => {
+                    const eps = Math.pow(10, -getDecimals(stock)) / 2;
+                    if (Math.abs(stock.price - grid.price) < eps) return 'grid-active';
+                    if (stock.price <= grid.price) return 'grid-active';
+                    return '';
+                };
+                
+                const getDotClass = (stock, grid) => {
+                    const eps = Math.pow(10, -getDecimals(stock)) / 2;
+                    if (Math.abs(stock.price - grid.price) < eps) return 'current';
+                    if (stock.price <= grid.price) return 'active';
+                    return '';
+                };
+                
+                const getDistance = (stock, grid) => {
+                    const dec = getDecimals(stock);
+                    const diff = grid.price - stock.price;
+                    const pct = (diff / stock.price) * 100;
+                    const eps = Math.pow(10, -dec);
+                    if (Math.abs(diff) < eps) return '← 现价';
+                    return (diff > 0 ? '+' : '') + diff.toFixed(dec) + ' (' + (pct > 0 ? '+' : '') + pct.toFixed(1) + '%)';
+                };
+                
+                const getDistanceStyle = (stock, grid) => {
+                    const diff = grid.price - stock.price;
+                    if (Math.abs(diff) < 0.01) return 'color: var(--primary-red); font-weight: 700;';
+                    if (diff < 0) return 'color: var(--primary-green); font-weight: 500;';
+                    return 'color: #94a3b8;';
+                };
+                
+                const formatNumber = (n) => {
+                    return Math.round(n).toLocaleString();
+                };
+                
+                return { 
+                    totalAsset, totalMarketVal, totalPositionPct, getPositionPct,
+                    stocks, filteredStocks, searchQuery, 
+                    calcYield, getDecimals, getStep, adjustPrice, adjustPriceUp, adjustPriceDown,
+                    getGridRowClass, getDotClass, getDistance, getDistanceStyle, formatNumber
+                };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
