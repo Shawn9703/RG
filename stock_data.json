@@ -55,7 +55,7 @@
         }
       ],
       "hold_qty": 200,
-      "market_val": 7782,
+      "market_val": 7740,
       "hold_cost": 40.194,
       "summary": ""
     },
@@ -113,7 +113,7 @@
         }
       ],
       "hold_qty": 100,
-      "market_val": 5332,
+      "market_val": 5260,
       "hold_cost": 53.811,
       "summary": ""
     },
@@ -159,7 +159,7 @@
         }
       ],
       "hold_qty": 3000,
-      "market_val": 26550,
+      "market_val": 26430,
       "hold_cost": 8.129,
       "summary": ""
     },
@@ -275,7 +275,7 @@
         }
       ],
       "hold_qty": 300,
-      "market_val": 2097,
+      "market_val": 2085,
       "hold_cost": 7.067,
     },
     {
@@ -676,7 +676,7 @@
         }
       ],
       "hold_qty": 500,
-      "market_val": 12475,
+      "market_val": 12315,
       "hold_cost": 24.774,
       "summary": ""
     },
@@ -792,7 +792,7 @@
         }
       ],
       "hold_qty": 100,
-      "market_val": 2734,
+      "market_val": 2724,
       "hold_cost": 23.294,
       "summary": ""
     },
