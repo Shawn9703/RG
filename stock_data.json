@@ -1,5 +1,5 @@
 {
-  "total_asset": 94683,
+  "total_asset": 94047,
   "stocks": [
     {
       "id": 0,
@@ -734,9 +734,9 @@
           "yield": 6.6
         }
       ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
+      "hold_qty": 399,
+      "market_val": 7983,
+      "hold_cost": 26.377,
       "summary": ""
     },
     {
@@ -792,9 +792,9 @@
           "yield": 6.3
         }
       ],
-      "hold_qty": 100,
-      "market_val": 2724,
-      "hold_cost": 23.294,
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
       "summary": ""
     },
     {
@@ -1185,9 +1185,9 @@
           "yield": 6.3
         }
       ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
+      "hold_qty": 200,
+      "market_val": 3444,
+      "hold_cost": 17.305,
       "summary": ""
     },
     {
