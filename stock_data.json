@@ -685,7 +685,7 @@
       "id": 12,
       "name": "云铝股份",
       "div": 1.4,
-      "price": 27.44,
+      "price": 26.33,
       "boll": {
         "up_price": 36.26,
         "mid_price": 28.33,
@@ -734,8 +734,8 @@
           "yield": 6.6
         }
       ],
-      "hold_qty": 399,
-      "market_val": 7983,
+      "hold_qty": 400,
+      "market_val": 7788,
       "hold_cost": 26.377,
       "summary": ""
     },
