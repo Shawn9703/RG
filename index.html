@@ -96,9 +96,10 @@
         .current-yield-label { font-size: 11px; color: var(--text-sub); margin-bottom: 2px; }
         .current-yield-val { font-size: 20px; font-weight: 700; color: var(--primary-red); }
         
-        .boll-container { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; }
-        .boll-box { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 6px; text-align: center; }
+        .boll-container { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 16px; }
+        .boll-box { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 4px; text-align: center; min-width: 0; }
         .boll-box.month { background: #faf5ff; border-color: #e9d5ff; }
+        .boll-box.ma250 { background: #fff7ed; border-color: #fdba74; }
         .boll-label { font-size: 10px; color: var(--text-sub); margin-bottom: 4px; font-weight: 500; }
         .boll-price { font-size: 13px; font-weight: 600; color: #334155; font-family: monospace; }
         .boll-yield { font-size: 11px; color: var(--primary-blue); margin-top: 3px; }
@@ -269,6 +270,11 @@
                     <div class="boll-label">月BOLL中轨</div>
                     <div class="boll-price">¥{{ stock.boll_month_mid ? stock.boll_month_mid.toFixed(getDecimals(stock)) : '--' }}</div>
                     <div class="boll-yield">{{ stock.boll_month_mid ? calcYield(stock.div, stock.boll_month_mid) + '%' : '--' }}</div>
+                </div>
+                <div class="boll-box ma250">
+                    <div class="boll-label">250日线</div>
+                    <div class="boll-price">¥{{ stock.ma250 ? stock.ma250.toFixed(getDecimals(stock)) : '--' }}</div>
+                    <div class="boll-yield" :style="getMa250Style(stock)">{{ getMa250Deviation(stock) }}</div>
                 </div>
             </div>
             
@@ -480,12 +486,32 @@
                 const formatNumber = (n) => {
                     return Math.round(n).toLocaleString();
                 };
-                
-                return { 
+
+                // 250 日线与现价的偏离度（%），保留 1 位小数；A 股惯例：涨红跌绿
+                const getMa250Deviation = (stock) => {
+                    if (!stock.ma250 || stock.ma250 <= 0 || !stock.price) return '--';
+                    const dec = getDecimals(stock);
+                    const diff = stock.price - stock.ma250;
+                    const pct = (diff / stock.ma250) * 100;
+                    const eps = Math.pow(10, -dec);
+                    if (Math.abs(diff) < eps) return '±0%';
+                    return (diff > 0 ? '+' : '') + pct.toFixed(1) + '%';
+                };
+                const getMa250Style = (stock) => {
+                    if (!stock.ma250 || stock.ma250 <= 0 || !stock.price) return 'color: var(--text-sub);';
+                    const dec = getDecimals(stock);
+                    const diff = stock.price - stock.ma250;
+                    const eps = Math.pow(10, -dec);
+                    if (Math.abs(diff) < eps) return 'color: var(--text-sub);';
+                    return diff > 0 ? 'color: var(--primary-red); font-weight: 600;' : 'color: var(--primary-green); font-weight: 600;';
+                };
+
+                return {
                     totalAsset, totalMarketVal, totalPositionPct, getPositionPct,
-                    stocks, filteredStocks, searchQuery, 
+                    stocks, filteredStocks, searchQuery,
                     calcYield, getDecimals, getStep, adjustPrice, adjustPriceUp, adjustPriceDown,
                     getGridRowClass, getDotClass, getDistance, getDistanceStyle, formatNumber,
+                    getMa250Deviation, getMa250Style,
                     loading, loadError, fetchData, onFileChange
                 };
             }
