@@ -6,7 +6,7 @@
       "name": "招商银行",
       "div": 2.016,
       "ma250": 38.89,
-      "price": 38.89,
+      "price": 38.46,
       "boll": {
         "up_price": 40.02,
         "mid_price": 37.57,
@@ -65,7 +65,7 @@
       "name": "中国平安",
       "div": 2.7,
       "ma250": 57.15,
-      "price": 57.15,
+      "price": 51.75,
       "boll": {
         "up_price": 59.39,
         "mid_price": 53.19,
@@ -124,7 +124,7 @@
       "name": "中国核电",
       "div": 0.18,
       "ma250": 8.75,
-      "price": 8.75,
+      "price": 8.78,
       "boll": {
         "up_price": 9.13,
         "mid_price": 8.81,
@@ -167,7 +167,7 @@
       "name": "国电电力",
       "div": 0.241,
       "ma250": 4.88,
-      "price": 4.88,
+      "price": 5.06,
       "boll": {
         "up_price": 5.12,
         "mid_price": 4.78,
@@ -226,7 +226,7 @@
       "name": "华能国际",
       "div": 0.37,
       "ma250": 7.13,
-      "price": 7.13,
+      "price": 6.84,
       "boll": {
         "up_price": 8.05,
         "mid_price": 7.04,
@@ -285,7 +285,7 @@
       "name": "中远海控",
       "div": 1.0,
       "ma250": 14.40,
-      "price": 14.4,
+      "price": 15.39,
       "boll": {
         "up_price": 15.72,
         "mid_price": 14.3,
@@ -344,7 +344,7 @@
       "name": "海尔智家",
       "div": 1.16071,
       "ma250": 24.02,
-      "price": 24.02,
+      "price": 21.76,
       "boll": {
         "up_price": 22.68,
         "mid_price": 21.0,
@@ -403,7 +403,7 @@
       "name": "伊利股份",
       "div": 1.38,
       "ma250": 26.14,
-      "price": 26.14,
+      "price": 25.51,
       "boll": {
         "up_price": 27.47,
         "mid_price": 25.6,
@@ -462,7 +462,7 @@
       "name": "中国石油",
       "div": 0.47,
       "ma250": 9.95,
-      "price": 9.95,
+      "price": 10.66,
       "boll": {
         "up_price": 12.56,
         "mid_price": 10.66,
@@ -521,7 +521,7 @@
       "name": "工商银行",
       "div": 0.3103,
       "ma250": 7.37,
-      "price": 7.37,
+      "price": 7.56,
       "boll": {
         "up_price": 7.87,
         "mid_price": 7.38,
@@ -576,7 +576,7 @@
       "name": "交通银行",
       "div": 0.3247,
       "ma250": 6.81,
-      "price": 6.81,
+      "price": 6.88,
       "boll": {
         "up_price": 7.16,
         "mid_price": 6.7,
@@ -635,7 +635,7 @@
       "name": "双汇发展",
       "div": 1.45,
       "ma250": 25.33,
-      "price": 25.33,
+      "price": 24.60,
       "boll": {
         "up_price": 28.83,
         "mid_price": 25.39,
@@ -694,7 +694,7 @@
       "name": "云铝股份",
       "div": 1.4,
       "ma250": 26.53,
-      "price": 26.53,
+      "price": 25.91,
       "boll": {
         "up_price": 36.21,
         "mid_price": 28.2,
@@ -753,7 +753,7 @@
       "name": "海天味业",
       "div": 1.36,
       "ma250": 36.70,
-      "price": 36.7,
+      "price": 35.82,
       "boll": {
         "up_price": 41.2,
         "mid_price": 36.21,
@@ -800,7 +800,7 @@
       "name": "中国移动",
       "div": 4.7037,
       "ma250": 97.81,
-      "price": 97.81,
+      "price": 97.71,
       "boll": {
         "up_price": 99.74,
         "mid_price": 93.48,
@@ -859,7 +859,7 @@
       "name": "中国神华",
       "div": 2.01,
       "ma250": 41.63,
-      "price": 41.63,
+      "price": 44.72,
       "boll": {
         "up_price": 49.17,
         "mid_price": 44.21,
@@ -918,7 +918,7 @@
       "name": "中国海油",
       "div": 1.45,
       "ma250": 31.06,
-      "price": 31.06,
+      "price": 32.67,
       "boll": {
         "up_price": 41.14,
         "mid_price": 33.45,
@@ -977,7 +977,7 @@
       "name": "东阿阿胶",
       "div": 2.7055823,
       "ma250": 49.33,
-      "price": 49.33,
+      "price": 51.92,
       "boll": {
         "up_price": 56.57,
         "mid_price": 50.5,
@@ -1012,7 +1012,7 @@
       "name": "横店东磁",
       "div": 0.98,
       "ma250": 20.58,
-      "price": 20.58,
+      "price": 22.65,
       "boll": {
         "up_price": 31.73,
         "mid_price": 22.69,
@@ -1055,7 +1055,7 @@
       "name": "中国电信",
       "div": 0.272,
       "ma250": 6.27,
-      "price": 6.27,
+      "price": 6.57,
       "boll": {
         "up_price": 6.53,
         "mid_price": 5.92,
@@ -1114,7 +1114,7 @@
       "name": "沪深300",
       "div": 0.123,
       "ma250": 4.653,
-      "price": 4.653,
+      "price": 4.726,
       "price_decimals": 3,
       "boll": {
         "up_price": 5.041,
