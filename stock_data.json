@@ -1222,6 +1222,33 @@
       "market_val": 0,
       "hold_cost": 0,
       "summary": ""
+    },
+	  {
+      "id": 23,
+	"name": "科创50",
+      "div": 0,
+      "ma250": 1504.47,
+      "price": 1682.20,
+      "boll": {
+        "up_price": 2086.63,
+        "mid_price": 1714.49,
+        "low_price": 1342.35
+      },
+      "boll_month_mid": 1356.15,
+      "grids": [
+        {
+          "price": 1682.20,
+        },
+        {
+          "price": 1579,
+        },
+        {
+          "price": 1393.74,
+        },
+        {
+          "price": 1356.15,
+        }
+      ]
     }
   ]
 }
