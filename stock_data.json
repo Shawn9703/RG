@@ -159,7 +159,7 @@
       ],
       "hold_qty": 3500,
       "market_val": 26430,
-      "hold_cost": 8.220,
+      "hold_cost": 8.22,
       "summary": ""
     },
     {
@@ -284,7 +284,7 @@
       "id": 5,
       "name": "中远海控",
       "div": 1.0,
-      "ma250": 14.40,
+      "ma250": 14.4,
       "price": 16.31,
       "boll": {
         "up_price": 15.72,
@@ -752,7 +752,7 @@
       "id": 13,
       "name": "海天味业",
       "div": 1.36,
-      "ma250": 36.70,
+      "ma250": 36.7,
       "price": 35.55,
       "boll": {
         "up_price": 41.2,
@@ -859,7 +859,7 @@
       "name": "中国神华",
       "div": 2.01,
       "ma250": 41.63,
-      "price": 45.70,
+      "price": 45.7,
       "boll": {
         "up_price": 49.17,
         "mid_price": 44.21,
@@ -1154,7 +1154,7 @@
       "name": "富安娜",
       "div": 0.385,
       "ma250": 6.63,
-      "price": 6.60,
+      "price": 6.6,
       "boll": {
         "up_price": 7.16,
         "mid_price": 6.59,
@@ -1166,19 +1166,19 @@
           "price": 7.21,
           "yield": 5.3
         },
-		  {
+        {
           "price": 6.5254,
           "yield": 5.9
         },
-		  {
+        {
           "price": 6.3114,
           "yield": 6.1
         },
-		   {
+        {
           "price": 6.1111,
           "yield": 6.3
         },
-		  {
+        {
           "price": 5.9231,
           "yield": 6.5
         }
@@ -1190,10 +1190,10 @@
     },
     {
       "id": 22,
-	"name": "云南白药",
+      "name": "云南白药",
       "div": 2.602,
       "ma250": 53.44,
-      "price": 49.50,
+      "price": 49.5,
       "boll": {
         "up_price": 55.14,
         "mid_price": 50.98,
@@ -1223,12 +1223,12 @@
       "hold_cost": 0,
       "summary": ""
     },
-	  {
+    {
       "id": 23,
-	"name": "科创50",
+      "name": "科创50",
       "div": 0,
       "ma250": 1504.47,
-      "price": 1682.20,
+      "price": 1682.2,
       "boll": {
         "up_price": 2086.63,
         "mid_price": 1714.49,
@@ -1237,22 +1237,26 @@
       "boll_month_mid": 1356.15,
       "grids": [
         {
-          "price": 1682.20,
-		  "yield": 6.0
+          "price": 1682.2,
+          "yield": 6.0
         },
         {
           "price": 1579,
-		  "yield": 6.0
+          "yield": 6.0
         },
         {
           "price": 1393.74,
-		  "yield": 6.0
+          "yield": 6.0
         },
         {
           "price": 1356.15,
-		  "yield": 6.0
+          "yield": 6.0
         }
-      ]
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
     }
   ]
 }
