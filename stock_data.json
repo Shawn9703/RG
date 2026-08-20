@@ -1265,6 +1265,53 @@
       "market_val": 0,
       "hold_cost": 0,
       "summary": ""
-    }
+    },
+     {
+      "id": 24,
+      "name": "创业板",
+      "div": 0,
+      "ma250": 3.372,
+      "price": 2.512,
+      "boll": {
+        "up_price": 4.301,
+        "mid_price": 3.777,
+        "low_price": 3.253
+      },
+      "boll_month_mid": 2.941,
+      "grids": [
+        {
+          "price": 4.40,
+          "yield": 6.0
+        },
+        {
+          "price": 4.02,
+          "yield": 6.0
+        },
+        {
+          "price": 3.61,
+          "yield": 6.0
+        },
+        {
+          "price": 3.30,
+          "yield": 6.0
+        }
+        {
+          "price": 3.01,
+          "yield": 6.0
+        }
+        {
+          "price": 2.70,
+          "yield": 6.0
+        }
+        {
+          "price": 2.41,
+          "yield": 6.0
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
   ]
 }
