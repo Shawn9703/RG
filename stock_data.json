@@ -1230,6 +1230,41 @@
       "market_val": 0,
       "hold_cost": 0,
       "summary": ""
+    },
+      {
+      "id": 23,
+      "name": "长江电力",
+      "div": 1,
+      "ma250": 26.68,
+      "price": 28.16,
+      "boll": {
+        "up_price": 29.13,
+        "mid_price": 26.92,
+        "low_price": 24.71
+      },
+      "boll_month_mid": 26.86,
+      "grids": [
+        {
+          "price": 21.05,
+          "yield": 4.75
+        },
+        {
+          "price": 22.22,
+          "yield": 4.5
+        },
+        {
+          "price": 23.53,
+          "yield": 4.25
+        },
+        {
+          "price": 25,
+          "yield": 4
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
     }
   ]
 }
