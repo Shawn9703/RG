@@ -6,7 +6,7 @@
       "name": "招商银行",
       "div": 2.016,
       "ma250": 38.89,
-      "price": 38.29,
+      "price": 38.86,
       "boll": {
         "up_price": 40.02,
         "mid_price": 37.57,
@@ -65,7 +65,7 @@
       "name": "中国平安",
       "div": 2.7,
       "ma250": 57.15,
-      "price": 51.32,
+      "price": 52.14,
       "boll": {
         "up_price": 59.39,
         "mid_price": 53.19,
@@ -124,7 +124,7 @@
       "name": "中国核电",
       "div": 0.18,
       "ma250": 8.75,
-      "price": 8.82,
+      "price": 8.73,
       "boll": {
         "up_price": 9.13,
         "mid_price": 8.81,
@@ -167,7 +167,7 @@
       "name": "国电电力",
       "div": 0.241,
       "ma250": 4.88,
-      "price": 5.03,
+      "price": 5.16,
       "boll": {
         "up_price": 5.12,
         "mid_price": 4.78,
@@ -226,7 +226,7 @@
       "name": "华能国际",
       "div": 0.37,
       "ma250": 7.13,
-      "price": 6.89,
+      "price": 6.66,
       "boll": {
         "up_price": 8.05,
         "mid_price": 7.04,
@@ -275,9 +275,9 @@
           "yield": 6.1
         }
       ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
+      "hold_qty": 300,
+      "market_val": 1998,
+      "hold_cost": 6.717,
       "summary": ""
     },
     {
@@ -285,7 +285,7 @@
       "name": "中远海控",
       "div": 1.0,
       "ma250": 14.4,
-      "price": 16.31,
+      "price": 16.64,
       "boll": {
         "up_price": 15.72,
         "mid_price": 14.3,
@@ -344,7 +344,7 @@
       "name": "海尔智家",
       "div": 1.16071,
       "ma250": 24.02,
-      "price": 21.65,
+      "price": 21.77,
       "boll": {
         "up_price": 22.68,
         "mid_price": 21.0,
@@ -403,7 +403,7 @@
       "name": "伊利股份",
       "div": 1.38,
       "ma250": 26.14,
-      "price": 25.15,
+      "price": 25.52,
       "boll": {
         "up_price": 27.47,
         "mid_price": 25.6,
@@ -462,7 +462,7 @@
       "name": "中国石油",
       "div": 0.47,
       "ma250": 9.95,
-      "price": 10.92,
+      "price": 10.99,
       "boll": {
         "up_price": 12.56,
         "mid_price": 10.66,
@@ -521,7 +521,7 @@
       "name": "工商银行",
       "div": 0.3103,
       "ma250": 7.37,
-      "price": 7.67,
+      "price": 7.78,
       "boll": {
         "up_price": 7.87,
         "mid_price": 7.38,
@@ -576,7 +576,7 @@
       "name": "交通银行",
       "div": 0.3247,
       "ma250": 6.81,
-      "price": 7.01,
+      "price": 7.11,
       "boll": {
         "up_price": 7.16,
         "mid_price": 6.7,
@@ -635,7 +635,7 @@
       "name": "双汇发展",
       "div": 1.45,
       "ma250": 25.33,
-      "price": 24.98,
+      "price": 25.08,
       "boll": {
         "up_price": 28.83,
         "mid_price": 25.39,
@@ -694,7 +694,7 @@
       "name": "云铝股份",
       "div": 1.4,
       "ma250": 26.53,
-      "price": 26.57,
+      "price": 25.26,
       "boll": {
         "up_price": 36.21,
         "mid_price": 28.2,
@@ -743,9 +743,9 @@
           "yield": 6.6
         }
       ],
-      "hold_qty": 500,
-      "market_val": 12825,
-      "hold_cost": 26.016,
+      "hold_qty": 700,
+      "market_val": 17682,
+      "hold_cost": 25.847,
       "summary": ""
     },
     {
@@ -753,7 +753,7 @@
       "name": "海天味业",
       "div": 1.36,
       "ma250": 36.7,
-      "price": 35.55,
+      "price": 35.75,
       "boll": {
         "up_price": 41.2,
         "mid_price": 36.21,
@@ -800,7 +800,7 @@
       "name": "中国移动",
       "div": 4.7037,
       "ma250": 97.81,
-      "price": 95.74,
+      "price": 96.70,
       "boll": {
         "up_price": 99.74,
         "mid_price": 93.48,
@@ -859,7 +859,7 @@
       "name": "中国神华",
       "div": 2.01,
       "ma250": 41.63,
-      "price": 45.7,
+      "price": 46.55,
       "boll": {
         "up_price": 49.17,
         "mid_price": 44.21,
@@ -918,7 +918,7 @@
       "name": "中国海油",
       "div": 1.45,
       "ma250": 31.06,
-      "price": 33.58,
+      "price": 33.30,
       "boll": {
         "up_price": 41.14,
         "mid_price": 33.45,
@@ -977,7 +977,7 @@
       "name": "东阿阿胶",
       "div": 2.7055823,
       "ma250": 49.33,
-      "price": 51.49,
+      "price": 51.60,
       "boll": {
         "up_price": 56.57,
         "mid_price": 50.5,
@@ -1012,16 +1012,24 @@
       "name": "云天化",
       "div": 1.4,
       "ma250": 30.92,
-      "price": 30.71,
+      "price": 29.83,
       "boll": {
         "up_price": 35.11,
         "mid_price": 30.87,
         "low_price": 26.63
       },
       "boll_month_mid": 27.61,
-      "grids": [
+      "grids": [ 
         {
-          "price": 28,
+          "price": 34.98,
+          "yield": 4.0
+        },
+        {
+          "price": 31.06,
+          "yield": 4.5
+        },
+        {
+          "price": 28.09,
           "yield": 5.0
         },
         {
@@ -1031,6 +1039,10 @@
         {
           "price": 25.4545,
           "yield": 5.5
+        }
+        {
+          "price": 23.57,
+          "yield": 5.9
         }
       ],
       "hold_qty": 0,
@@ -1043,7 +1055,7 @@
       "name": "中国电信",
       "div": 0.272,
       "ma250": 6.27,
-      "price": 6.57,
+      "price": 6.56,
       "boll": {
         "up_price": 6.53,
         "mid_price": 5.92,
@@ -1102,7 +1114,7 @@
       "name": "沪深300",
       "div": 0.123,
       "ma250": 4.653,
-      "price": 4.787,
+      "price": 4.653,
       "price_decimals": 3,
       "boll": {
         "up_price": 5.041,
@@ -1151,49 +1163,10 @@
     },
     {
       "id": 21,
-      "name": "富安娜",
-      "div": 0.385,
-      "ma250": 6.63,
-      "price": 6.6,
-      "boll": {
-        "up_price": 7.16,
-        "mid_price": 6.59,
-        "low_price": 6.01
-      },
-      "boll_month_mid": 6.79,
-      "grids": [
-        {
-          "price": 7.21,
-          "yield": 5.3
-        },
-        {
-          "price": 6.5254,
-          "yield": 5.9
-        },
-        {
-          "price": 6.3114,
-          "yield": 6.1
-        },
-        {
-          "price": 6.1111,
-          "yield": 6.3
-        },
-        {
-          "price": 5.9231,
-          "yield": 6.5
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-    {
-      "id": 22,
       "name": "云南白药",
       "div": 2.602,
       "ma250": 53.44,
-      "price": 49.5,
+      "price": 50.21,
       "boll": {
         "up_price": 55.14,
         "mid_price": 50.98,
@@ -1224,11 +1197,11 @@
       "summary": ""
     },
     {
-      "id": 23,
+      "id": 22,
       "name": "科创50",
       "div": 0,
       "ma250": 1504.47,
-      "price": 1682.2,
+      "price": 1652.97,
       "boll": {
         "up_price": 2086.63,
         "mid_price": 1714.49,
