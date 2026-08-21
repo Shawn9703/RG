@@ -3,75 +3,16 @@
   "stocks": [
     {
       "id": 0,
-      "name": "招商银行",
-      "div": 2.016,
-      "ma250": 38.89,
-      "price": 38.86,
-      "boll": {
-        "up_price": 40.02,
-        "mid_price": 37.57,
-        "low_price": 35.12
-      },
-      "boll_month_mid": 38.71,
-      "grids": [
-        {
-          "price": 43.8261,
-          "yield": 4.6
-        },
-        {
-          "price": 42.8936,
-          "yield": 4.7
-        },
-        {
-          "price": 42.0,
-          "yield": 4.8
-        },
-        {
-          "price": 41.1429,
-          "yield": 4.9
-        },
-        {
-          "price": 40.32,
-          "yield": 5.0
-        },
-        {
-          "price": 37.4721,
-          "yield": 5.38
-        },
-        {
-          "price": 36.6545,
-          "yield": 5.5
-        },
-        {
-          "price": 35.1342,
-          "yield": 5.74
-        },
-        {
-          "price": 34.7586,
-          "yield": 5.8
-        },
-        {
-          "price": 33.6,
-          "yield": 6.0
-        }
-      ],
-      "hold_qty": 200,
-      "market_val": 7740,
-      "hold_cost": 40.194,
-      "summary": ""
-    },
-    {
-      "id": 1,
       "name": "中国平安",
       "div": 2.7,
-      "ma250": 57.15,
-      "price": 52.14,
+      "ma250": 57.07,
+      "price": 52.35,
       "boll": {
-        "up_price": 59.39,
-        "mid_price": 53.19,
-        "low_price": 46.99
+        "up_price": 59.19,
+        "mid_price": 53.08,
+        "low_price": 46.98
       },
-      "boll_month_mid": 53.94,
+      "boll_month_mid": 54.02,
       "grids": [
         {
           "price": 77.1429,
@@ -120,17 +61,17 @@
       "summary": ""
     },
     {
-      "id": 2,
+      "id": 1,
       "name": "中国核电",
       "div": 0.18,
       "ma250": 8.75,
-      "price": 8.73,
+      "price": 8.71,
       "boll": {
         "up_price": 9.13,
         "mid_price": 8.81,
-        "low_price": 8.49
+        "low_price": 8.5
       },
-      "boll_month_mid": 8.84,
+      "boll_month_mid": 8.83,
       "grids": [
         {
           "price": 10.48,
@@ -163,14 +104,73 @@
       "summary": ""
     },
     {
+      "id": 2,
+      "name": "云铝股份",
+      "div": 1.4,
+      "ma250": 26.74,
+      "price": 25.88,
+      "boll": {
+        "up_price": 36.82,
+        "mid_price": 278.92,
+        "low_price": 20.01
+      },
+      "boll_month_mid": 22.62,
+      "grids": [
+        {
+          "price": 40.0,
+          "yield": 3.5
+        },
+        {
+          "price": 37.3333,
+          "yield": 3.75
+        },
+        {
+          "price": 35.0,
+          "yield": 4.0
+        },
+        {
+          "price": 32.9412,
+          "yield": 4.25
+        },
+        {
+          "price": 31.1111,
+          "yield": 4.5
+        },
+        {
+          "price": 25.4545,
+          "yield": 5.5
+        },
+        {
+          "price": 24.5614,
+          "yield": 5.7
+        },
+        {
+          "price": 23.3333,
+          "yield": 6.0
+        },
+        {
+          "price": 22.2222,
+          "yield": 6.3
+        },
+        {
+          "price": 21.2121,
+          "yield": 6.6
+        }
+      ],
+      "hold_qty": 700,
+      "market_val": 17682,
+      "hold_cost": 25.847,
+      "summary": ""
+    },
+    {
       "id": 3,
       "name": "国电电力",
       "div": 0.241,
-      "ma250": 4.88,
-      "price": 5.16,
+      "ma250": 4.89,
+      "price": 5.11,
       "boll": {
-        "up_price": 5.12,
-        "mid_price": 4.78,
+        "up_price": 5.17,
+        "mid_price": 4.8,
         "low_price": 4.44
       },
       "boll_month_mid": 4.6,
@@ -223,134 +223,16 @@
     },
     {
       "id": 4,
-      "name": "华能国际",
-      "div": 0.37,
-      "ma250": 7.13,
-      "price": 6.66,
-      "boll": {
-        "up_price": 8.05,
-        "mid_price": 7.04,
-        "low_price": 6.03
-      },
-      "boll_month_mid": 6.84,
-      "grids": [
-        {
-          "price": 10.5714,
-          "yield": 3.5
-        },
-        {
-          "price": 9.8667,
-          "yield": 3.75
-        },
-        {
-          "price": 9.25,
-          "yield": 4.0
-        },
-        {
-          "price": 8.7059,
-          "yield": 4.25
-        },
-        {
-          "price": 8.2223,
-          "yield": 4.5
-        },
-        {
-          "price": 7.0476,
-          "yield": 5.25
-        },
-        {
-          "price": 6.7273,
-          "yield": 5.5
-        },
-        {
-          "price": 6.4912,
-          "yield": 5.7
-        },
-        {
-          "price": 6.2712,
-          "yield": 5.9
-        },
-        {
-          "price": 6.0656,
-          "yield": 6.1
-        }
-      ],
-      "hold_qty": 300,
-      "market_val": 1998,
-      "hold_cost": 6.717,
-      "summary": ""
-    },
-    {
-      "id": 5,
-      "name": "中远海控",
-      "div": 1.0,
-      "ma250": 14.4,
-      "price": 16.64,
-      "boll": {
-        "up_price": 15.72,
-        "mid_price": 14.3,
-        "low_price": 12.88
-      },
-      "boll_month_mid": 13.88,
-      "grids": [
-        {
-          "price": 28.5714,
-          "yield": 3.5
-        },
-        {
-          "price": 26.6667,
-          "yield": 3.75
-        },
-        {
-          "price": 25.0,
-          "yield": 4.0
-        },
-        {
-          "price": 23.5294,
-          "yield": 4.25
-        },
-        {
-          "price": 22.2222,
-          "yield": 4.5
-        },
-        {
-          "price": 13.986,
-          "yield": 7.15
-        },
-        {
-          "price": 13.6986,
-          "yield": 7.3
-        },
-        {
-          "price": 13.3333,
-          "yield": 7.5
-        },
-        {
-          "price": 12.987,
-          "yield": 7.7
-        },
-        {
-          "price": 12.8205,
-          "yield": 7.8
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-    {
-      "id": 6,
       "name": "海尔智家",
       "div": 1.16071,
-      "ma250": 24.02,
-      "price": 21.77,
+      "ma250": 23.09,
+      "price": 20.86,
       "boll": {
-        "up_price": 22.68,
-        "mid_price": 21.0,
-        "low_price": 19.33
+        "up_price": 21.86,
+        "mid_price": 20.16,
+        "low_price": 18.46
       },
-      "boll_month_mid": 24.22,
+      "boll_month_mid": 23.35,
       "grids": [
         {
           "price": 33.1631,
@@ -399,11 +281,70 @@
       "summary": ""
     },
     {
-      "id": 7,
+      "id": 5,
+      "name": "双汇发展",
+      "div": 1.45,
+      "ma250": 25.36,
+      "price": 24.9,
+      "boll": {
+        "up_price": 28.63,
+        "mid_price": 25.28,
+        "low_price": 21.93
+      },
+      "boll_month_mid": 24.77,
+      "grids": [
+        {
+          "price": 41.4286,
+          "yield": 3.5
+        },
+        {
+          "price": 38.6667,
+          "yield": 3.75
+        },
+        {
+          "price": 36.25,
+          "yield": 4.0
+        },
+        {
+          "price": 34.1176,
+          "yield": 4.25
+        },
+        {
+          "price": 32.2222,
+          "yield": 4.5
+        },
+        {
+          "price": 25.5732,
+          "yield": 5.67
+        },
+        {
+          "price": 24.1667,
+          "yield": 6.0
+        },
+        {
+          "price": 23.3871,
+          "yield": 6.2
+        },
+        {
+          "price": 22.6562,
+          "yield": 6.4
+        },
+        {
+          "price": 21.9365,
+          "yield": 6.61
+        }
+      ],
+      "hold_qty": 500,
+      "market_val": 12315,
+      "hold_cost": 24.774,
+      "summary": ""
+    },
+    {
+      "id": 6,
       "name": "伊利股份",
       "div": 1.38,
-      "ma250": 26.14,
-      "price": 25.52,
+      "ma250": 26.12,
+      "price": 25.4,
       "boll": {
         "up_price": 27.47,
         "mid_price": 25.6,
@@ -458,17 +399,264 @@
       "summary": ""
     },
     {
+      "id": 7,
+      "name": "招商银行",
+      "div": 2.016,
+      "ma250": 38.81,
+      "price": 38.9,
+      "boll": {
+        "up_price": 40.09,
+        "mid_price": 37.59,
+        "low_price": 35.1
+      },
+      "boll_month_mid": 38.73,
+      "grids": [
+        {
+          "price": 43.8261,
+          "yield": 4.6
+        },
+        {
+          "price": 42.8936,
+          "yield": 4.7
+        },
+        {
+          "price": 42.0,
+          "yield": 4.8
+        },
+        {
+          "price": 41.1429,
+          "yield": 4.9
+        },
+        {
+          "price": 40.32,
+          "yield": 5.0
+        },
+        {
+          "price": 37.4721,
+          "yield": 5.38
+        },
+        {
+          "price": 36.6545,
+          "yield": 5.5
+        },
+        {
+          "price": 35.1342,
+          "yield": 5.74
+        },
+        {
+          "price": 34.7586,
+          "yield": 5.8
+        },
+        {
+          "price": 33.6,
+          "yield": 6.0
+        }
+      ],
+      "hold_qty": 200,
+      "market_val": 7740,
+      "hold_cost": 40.194,
+      "summary": ""
+    },
+    {
       "id": 8,
+      "name": "东阿阿胶",
+      "div": 2.7055823,
+      "ma250": 49.38,
+      "price": 48.35,
+      "boll": {
+        "up_price": 55.98,
+        "mid_price": 50.18,
+        "low_price": 44.38
+      },
+      "boll_month_mid": 50.5,
+      "grids": [
+        {
+          "price": 54.1116,
+          "yield": 5.0
+        },
+        {
+          "price": 49.1924,
+          "yield": 5.5
+        },
+        {
+          "price": 45.093,
+          "yield": 6.0
+        },
+        {
+          "price": 41.6243,
+          "yield": 6.5
+        }
+      ],
+      "hold_qty": 100,
+      "market_val": 4835,
+      "hold_cost": 49.06,
+      "summary": ""
+    },
+    {
+      "id": 9,
+      "name": "华能国际",
+      "div": 0.37,
+      "ma250": 7.12,
+      "price": 6.6,
+      "boll": {
+        "up_price": 8.05,
+        "mid_price": 7.04,
+        "low_price": 6.04
+      },
+      "boll_month_mid": 6.82,
+      "grids": [
+        {
+          "price": 10.5714,
+          "yield": 3.5
+        },
+        {
+          "price": 9.8667,
+          "yield": 3.75
+        },
+        {
+          "price": 9.25,
+          "yield": 4.0
+        },
+        {
+          "price": 8.7059,
+          "yield": 4.25
+        },
+        {
+          "price": 8.2223,
+          "yield": 4.5
+        },
+        {
+          "price": 7.0476,
+          "yield": 5.25
+        },
+        {
+          "price": 6.7273,
+          "yield": 5.5
+        },
+        {
+          "price": 6.4912,
+          "yield": 5.7
+        },
+        {
+          "price": 6.2712,
+          "yield": 5.9
+        },
+        {
+          "price": 6.0656,
+          "yield": 6.1
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
+    {
+      "id": 10,
+      "name": "长江电力",
+      "div": 1,
+      "ma250": 26.69,
+      "price": 27.96,
+      "boll": {
+        "up_price": 29.1,
+        "mid_price": 26.91,
+        "low_price": 24.72
+      },
+      "boll_month_mid": 26.85,
+      "grids": [
+        {
+          "price": 21.05,
+          "yield": 4.75
+        },
+        {
+          "price": 22.22,
+          "yield": 4.5
+        },
+        {
+          "price": 23.53,
+          "yield": 4.25
+        },
+        {
+          "price": 25,
+          "yield": 4
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
+    {
+      "id": 11,
+      "name": "中远海控",
+      "div": 1.0,
+      "ma250": 14.44,
+      "price": 17.01,
+      "boll": {
+        "up_price": 16.28,
+        "mid_price": 14.42,
+        "low_price": 12.55
+      },
+      "boll_month_mid": 13.96,
+      "grids": [
+        {
+          "price": 28.5714,
+          "yield": 3.5
+        },
+        {
+          "price": 26.6667,
+          "yield": 3.75
+        },
+        {
+          "price": 25.0,
+          "yield": 4.0
+        },
+        {
+          "price": 23.5294,
+          "yield": 4.25
+        },
+        {
+          "price": 22.2222,
+          "yield": 4.5
+        },
+        {
+          "price": 13.986,
+          "yield": 7.15
+        },
+        {
+          "price": 13.6986,
+          "yield": 7.3
+        },
+        {
+          "price": 13.3333,
+          "yield": 7.5
+        },
+        {
+          "price": 12.987,
+          "yield": 7.7
+        },
+        {
+          "price": 12.8205,
+          "yield": 7.8
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
+    {
+      "id": 12,
       "name": "中国石油",
       "div": 0.47,
-      "ma250": 9.95,
-      "price": 10.99,
+      "ma250": 10.01,
+      "price": 11.2,
       "boll": {
-        "up_price": 12.56,
-        "mid_price": 10.66,
-        "low_price": 8.76
+        "up_price": 12.41,
+        "mid_price": 10.61,
+        "low_price": 8.81
       },
-      "boll_month_mid": 9.23,
+      "boll_month_mid": 9.25,
       "grids": [
         {
           "price": 13.4286,
@@ -517,414 +705,17 @@
       "summary": ""
     },
     {
-      "id": 9,
-      "name": "工商银行",
-      "div": 0.3103,
-      "ma250": 7.37,
-      "price": 7.78,
-      "boll": {
-        "up_price": 7.87,
-        "mid_price": 7.38,
-        "low_price": 6.88
-      },
-      "boll_month_mid": 7.11,
-      "grids": [
-        {
-          "price": 8.8657,
-          "yield": 3.5
-        },
-        {
-          "price": 8.2747,
-          "yield": 3.75
-        },
-        {
-          "price": 7.7575,
-          "yield": 4.0
-        },
-        {
-          "price": 7.3012,
-          "yield": 4.25
-        },
-        {
-          "price": 7.1333,
-          "yield": 4.35
-        },
-        {
-          "price": 7.0523,
-          "yield": 4.4
-        },
-        {
-          "price": 6.8956,
-          "yield": 4.5
-        },
-        {
-          "price": 6.7457,
-          "yield": 4.6
-        },
-        {
-          "price": 6.6021,
-          "yield": 4.7
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-    {
-      "id": 10,
-      "name": "交通银行",
-      "div": 0.3247,
-      "ma250": 6.81,
-      "price": 7.11,
-      "boll": {
-        "up_price": 7.16,
-        "mid_price": 6.7,
-        "low_price": 6.24
-      },
-      "boll_month_mid": 6.87,
-      "grids": [
-        {
-          "price": 9.2771,
-          "yield": 3.5
-        },
-        {
-          "price": 8.6587,
-          "yield": 3.75
-        },
-        {
-          "price": 8.1175,
-          "yield": 4.0
-        },
-        {
-          "price": 7.64,
-          "yield": 4.25
-        },
-        {
-          "price": 7.2156,
-          "yield": 4.5
-        },
-        {
-          "price": 6.7646,
-          "yield": 4.8
-        },
-        {
-          "price": 6.6265,
-          "yield": 4.9
-        },
-        {
-          "price": 6.494,
-          "yield": 5.0
-        },
-        {
-          "price": 6.3667,
-          "yield": 5.1
-        },
-        {
-          "price": 6.2442,
-          "yield": 5.2
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-    {
-      "id": 11,
-      "name": "双汇发展",
-      "div": 1.45,
-      "ma250": 25.33,
-      "price": 25.08,
-      "boll": {
-        "up_price": 28.83,
-        "mid_price": 25.39,
-        "low_price": 21.95
-      },
-      "boll_month_mid": 24.75,
-      "grids": [
-        {
-          "price": 41.4286,
-          "yield": 3.5
-        },
-        {
-          "price": 38.6667,
-          "yield": 3.75
-        },
-        {
-          "price": 36.25,
-          "yield": 4.0
-        },
-        {
-          "price": 34.1176,
-          "yield": 4.25
-        },
-        {
-          "price": 32.2222,
-          "yield": 4.5
-        },
-        {
-          "price": 25.5732,
-          "yield": 5.67
-        },
-        {
-          "price": 24.1667,
-          "yield": 6.0
-        },
-        {
-          "price": 23.3871,
-          "yield": 6.2
-        },
-        {
-          "price": 22.6562,
-          "yield": 6.4
-        },
-        {
-          "price": 21.9365,
-          "yield": 6.61
-        }
-      ],
-      "hold_qty": 500,
-      "market_val": 12315,
-      "hold_cost": 24.774,
-      "summary": ""
-    },
-    {
-      "id": 12,
-      "name": "云铝股份",
-      "div": 1.4,
-      "ma250": 26.53,
-      "price": 25.26,
-      "boll": {
-        "up_price": 36.21,
-        "mid_price": 28.2,
-        "low_price": 20.2
-      },
-      "boll_month_mid": 22.62,
-      "grids": [
-        {
-          "price": 40.0,
-          "yield": 3.5
-        },
-        {
-          "price": 37.3333,
-          "yield": 3.75
-        },
-        {
-          "price": 35.0,
-          "yield": 4.0
-        },
-        {
-          "price": 32.9412,
-          "yield": 4.25
-        },
-        {
-          "price": 31.1111,
-          "yield": 4.5
-        },
-        {
-          "price": 25.4545,
-          "yield": 5.5
-        },
-        {
-          "price": 24.5614,
-          "yield": 5.7
-        },
-        {
-          "price": 23.3333,
-          "yield": 6.0
-        },
-        {
-          "price": 22.2222,
-          "yield": 6.3
-        },
-        {
-          "price": 21.2121,
-          "yield": 6.6
-        }
-      ],
-      "hold_qty": 700,
-      "market_val": 17682,
-      "hold_cost": 25.847,
-      "summary": ""
-    },
-    {
       "id": 13,
-      "name": "海天味业",
-      "div": 1.36,
-      "ma250": 36.7,
-      "price": 35.75,
-      "boll": {
-        "up_price": 41.2,
-        "mid_price": 36.21,
-        "low_price": 31.22
-      },
-      "boll_month_mid": 37.46,
-      "grids": [
-        {
-          "price": 38.8571,
-          "yield": 3.5
-        },
-        {
-          "price": 36.2667,
-          "yield": 3.75
-        },
-        {
-          "price": 34,
-          "yield": 4.0
-        },
-        {
-          "price": 32,
-          "yield": 4.25
-        },
-        {
-          "price": 30.2222,
-          "yield": 4.5
-        },
-        {
-          "price": 28.6316,
-          "yield": 4.75
-        },
-        {
-          "price": 27.2,
-          "yield": 5.0
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-    {
-      "id": 14,
-      "name": "中国移动",
-      "div": 4.7037,
-      "ma250": 97.81,
-      "price": 96.70,
-      "boll": {
-        "up_price": 99.74,
-        "mid_price": 93.48,
-        "low_price": 87.11
-      },
-      "boll_month_mid": 99.84,
-      "grids": [
-        {
-          "price": 134.3914,
-          "yield": 3.5
-        },
-        {
-          "price": 125.432,
-          "yield": 3.75
-        },
-        {
-          "price": 117.5925,
-          "yield": 4.0
-        },
-        {
-          "price": 110.6753,
-          "yield": 4.25
-        },
-        {
-          "price": 104.5267,
-          "yield": 4.5
-        },
-        {
-          "price": 92.2294,
-          "yield": 5.1
-        },
-        {
-          "price": 90.4558,
-          "yield": 5.2
-        },
-        {
-          "price": 88.7491,
-          "yield": 5.3
-        },
-        {
-          "price": 87.1056,
-          "yield": 5.4
-        },
-        {
-          "price": 85.5218,
-          "yield": 5.5
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-    {
-      "id": 15,
-      "name": "中国神华",
-      "div": 2.01,
-      "ma250": 41.63,
-      "price": 46.55,
-      "boll": {
-        "up_price": 49.17,
-        "mid_price": 44.21,
-        "low_price": 39.26
-      },
-      "boll_month_mid": 39.19,
-      "grids": [
-        {
-          "price": 57.4286,
-          "yield": 3.5
-        },
-        {
-          "price": 53.6,
-          "yield": 3.75
-        },
-        {
-          "price": 50.25,
-          "yield": 4.0
-        },
-        {
-          "price": 47.2941,
-          "yield": 4.25
-        },
-        {
-          "price": 44.6667,
-          "yield": 4.5
-        },
-        {
-          "price": 42.766,
-          "yield": 4.7
-        },
-        {
-          "price": 41.0204,
-          "yield": 4.9
-        },
-        {
-          "price": 39.4118,
-          "yield": 5.1
-        },
-        {
-          "price": 37.9245,
-          "yield": 5.3
-        },
-        {
-          "price": 36.5455,
-          "yield": 5.5
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-    {
-      "id": 16,
       "name": "中国海油",
       "div": 1.45,
-      "ma250": 31.06,
-      "price": 33.30,
+      "ma250": 31.23,
+      "price": 33.86,
       "boll": {
-        "up_price": 41.14,
-        "mid_price": 33.45,
-        "low_price": 25.76
+        "up_price": 40.49,
+        "mid_price": 33.21,
+        "low_price": 25.92
       },
-      "boll_month_mid": 28.95,
+      "boll_month_mid": 29.01,
       "grids": [
         {
           "price": 41.4286,
@@ -973,33 +764,192 @@
       "summary": ""
     },
     {
-      "id": 17,
-      "name": "东阿阿胶",
-      "div": 2.7055823,
-      "ma250": 49.33,
-      "price": 51.60,
+      "id": 14,
+      "name": "中国神华",
+      "div": 2.01,
+      "ma250": 41.81,
+      "price": 46.41,
       "boll": {
-        "up_price": 56.57,
-        "mid_price": 50.5,
-        "low_price": 44.43
+        "up_price": 49.15,
+        "mid_price": 44.21,
+        "low_price": 39.26
       },
-      "boll_month_mid": 50.67,
+      "boll_month_mid": 39.28,
       "grids": [
         {
-          "price": 54.1116,
-          "yield": 5.0
+          "price": 57.4286,
+          "yield": 3.5
         },
         {
-          "price": 49.1924,
+          "price": 53.6,
+          "yield": 3.75
+        },
+        {
+          "price": 50.25,
+          "yield": 4.0
+        },
+        {
+          "price": 47.2941,
+          "yield": 4.25
+        },
+        {
+          "price": 44.6667,
+          "yield": 4.5
+        },
+        {
+          "price": 42.766,
+          "yield": 4.7
+        },
+        {
+          "price": 41.0204,
+          "yield": 4.9
+        },
+        {
+          "price": 39.4118,
+          "yield": 5.1
+        },
+        {
+          "price": 37.9245,
+          "yield": 5.3
+        },
+        {
+          "price": 36.5455,
           "yield": 5.5
-        },
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
+    {
+      "id": 15,
+      "name": "科创50",
+      "div": 0,
+      "ma250": 1509.27,
+      "price": 1653.56,
+      "boll": {
+        "up_price": 2085.84,
+        "mid_price": 1713.06,
+        "low_price": 1340.18
+      },
+      "boll_month_mid": 1354.72,
+      "grids": [
         {
-          "price": 45.093,
+          "price": 1682.2,
           "yield": 6.0
         },
         {
-          "price": 41.6243,
-          "yield": 6.5
+          "price": 1579,
+          "yield": 6.0
+        },
+        {
+          "price": 1393.74,
+          "yield": 6.0
+        },
+        {
+          "price": 1356.15,
+          "yield": 6.0
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
+    {
+      "id": 16,
+      "name": "沪深300",
+      "div": 0.123,
+      "ma250": 4.666,
+      "price": 4.68,
+      "price_decimals": 3,
+      "boll": {
+        "up_price": 5.007,
+        "mid_price": 4.795,
+        "low_price": 4.583
+      },
+      "boll_month_mid": 4.371,
+      "grids": [
+        {
+          "price": 4.573,
+          "yield": 2.69
+        },
+        {
+          "price": 4.39,
+          "yield": 2.8
+        },
+        {
+          "price": 4.207,
+          "yield": 2.92
+        },
+        {
+          "price": 4.024,
+          "yield": 3.06
+        },
+        {
+          "price": 3.841,
+          "yield": 3.2
+        },
+        {
+          "price": 3.658,
+          "yield": 3.36
+        },
+        {
+          "price": 3.476,
+          "yield": 3.54
+        },
+        {
+          "price": 3.293,
+          "yield": 3.74
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
+    {
+      "id": 17,
+      "name": "创业板",
+      "div": 0,
+      "ma250": 3.377,
+      "price": 3.56,
+      "price_decimals": 3,
+      "boll": {
+        "up_price": 4.298,
+        "mid_price": 3.779,
+        "low_price": 3.26
+      },
+      "boll_month_mid": 2.943,
+      "grids": [
+        {
+          "price": 4.4,
+          "yield": 6.0
+        },
+        {
+          "price": 4.02,
+          "yield": 6.0
+        },
+        {
+          "price": 3.61,
+          "yield": 6.0
+        },
+        {
+          "price": 3.3,
+          "yield": 6.0
+        },
+        {
+          "price": 3.01,
+          "yield": 6.0
+        },
+        {
+          "price": 2.7,
+          "yield": 6.0
+        },
+        {
+          "price": 2.41,
+          "yield": 6.0
         }
       ],
       "hold_qty": 0,
@@ -1011,15 +961,15 @@
       "id": 18,
       "name": "云天化",
       "div": 1.4,
-      "ma250": 30.92,
-      "price": 29.83,
+      "ma250": 30.99,
+      "price": 29.67,
       "boll": {
-        "up_price": 35.11,
-        "mid_price": 30.87,
-        "low_price": 26.63
+        "up_price": 35.09,
+        "mid_price": 30.82,
+        "low_price": 26.54
       },
-      "boll_month_mid": 27.61,
-      "grids": [ 
+      "boll_month_mid": 27.55,
+      "grids": [
         {
           "price": 34.98,
           "yield": 4.0
@@ -1052,14 +1002,187 @@
     },
     {
       "id": 19,
+      "name": "工商银行",
+      "div": 0.3103,
+      "ma250": 7.38,
+      "price": 7.77,
+      "boll": {
+        "up_price": 7.92,
+        "mid_price": 7.4,
+        "low_price": 6.88
+      },
+      "boll_month_mid": 7.12,
+      "grids": [
+        {
+          "price": 8.8657,
+          "yield": 3.5
+        },
+        {
+          "price": 8.2747,
+          "yield": 3.75
+        },
+        {
+          "price": 7.7575,
+          "yield": 4.0
+        },
+        {
+          "price": 7.3012,
+          "yield": 4.25
+        },
+        {
+          "price": 7.1333,
+          "yield": 4.35
+        },
+        {
+          "price": 7.0523,
+          "yield": 4.4
+        },
+        {
+          "price": 6.8956,
+          "yield": 4.5
+        },
+        {
+          "price": 6.7457,
+          "yield": 4.6
+        },
+        {
+          "price": 6.6021,
+          "yield": 4.7
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
+    {
+      "id": 20,
+      "name": "交通银行",
+      "div": 0.3247,
+      "ma250": 6.8,
+      "price": 7.12,
+      "boll": {
+        "up_price": 7.21,
+        "mid_price": 6.72,
+        "low_price": 6.22
+      },
+      "boll_month_mid": 6.88,
+      "grids": [
+        {
+          "price": 9.2771,
+          "yield": 3.5
+        },
+        {
+          "price": 8.6587,
+          "yield": 3.75
+        },
+        {
+          "price": 8.1175,
+          "yield": 4.0
+        },
+        {
+          "price": 7.64,
+          "yield": 4.25
+        },
+        {
+          "price": 7.2156,
+          "yield": 4.5
+        },
+        {
+          "price": 6.7646,
+          "yield": 4.8
+        },
+        {
+          "price": 6.6265,
+          "yield": 4.9
+        },
+        {
+          "price": 6.494,
+          "yield": 5.0
+        },
+        {
+          "price": 6.3667,
+          "yield": 5.1
+        },
+        {
+          "price": 6.2442,
+          "yield": 5.2
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
+    {
+      "id": 21,
+      "name": "中国移动",
+      "div": 4.7037,
+      "ma250": 97.66,
+      "price": 96.25,
+      "boll": {
+        "up_price": 100,
+        "mid_price": 93.75,
+        "low_price": 87.5
+      },
+      "boll_month_mid": 99.76,
+      "grids": [
+        {
+          "price": 134.3914,
+          "yield": 3.5
+        },
+        {
+          "price": 125.432,
+          "yield": 3.75
+        },
+        {
+          "price": 117.5925,
+          "yield": 4.0
+        },
+        {
+          "price": 110.6753,
+          "yield": 4.25
+        },
+        {
+          "price": 104.5267,
+          "yield": 4.5
+        },
+        {
+          "price": 92.2294,
+          "yield": 5.1
+        },
+        {
+          "price": 90.4558,
+          "yield": 5.2
+        },
+        {
+          "price": 88.7491,
+          "yield": 5.3
+        },
+        {
+          "price": 87.1056,
+          "yield": 5.4
+        },
+        {
+          "price": 85.5218,
+          "yield": 5.5
+        }
+      ],
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
+      "summary": ""
+    },
+    {
+      "id": 22,
       "name": "中国电信",
       "div": 0.272,
-      "ma250": 6.27,
-      "price": 6.56,
+      "ma250": 6.26,
+      "price": 6.43,
       "boll": {
-        "up_price": 6.53,
-        "mid_price": 5.92,
-        "low_price": 5.31
+        "up_price": 6.59,
+        "mid_price": 5.96,
+        "low_price": 5.33
       },
       "boll_month_mid": 6.59,
       "grids": [
@@ -1110,69 +1233,64 @@
       "summary": ""
     },
     {
-      "id": 20,
-      "name": "沪深300",
-      "div": 0.123,
-      "ma250": 4.653,
-      "price": 4.653,
-      "price_decimals": 3,
+      "id": 23,
+      "name": "海天味业",
+      "div": 1.36,
+      "ma250": 36.66,
+      "price": 35.05,
       "boll": {
-        "up_price": 5.041,
-        "mid_price": 4.783,
-        "low_price": 4.526
+        "up_price": 40.41,
+        "mid_price": 35.92,
+        "low_price": 31.43
       },
-      "boll_month_mid": 4.373,
+      "boll_month_mid": 37.42,
       "grids": [
         {
-          "price": 4.573,
-          "yield": 2.69
+          "price": 38.8571,
+          "yield": 3.5
         },
         {
-          "price": 4.39,
-          "yield": 2.8
+          "price": 36.2667,
+          "yield": 3.75
         },
         {
-          "price": 4.207,
-          "yield": 2.92
+          "price": 34,
+          "yield": 4.0
         },
         {
-          "price": 4.024,
-          "yield": 3.06
+          "price": 32,
+          "yield": 4.25
         },
         {
-          "price": 3.841,
-          "yield": 3.2
+          "price": 30.2222,
+          "yield": 4.5
         },
         {
-          "price": 3.658,
-          "yield": 3.36
+          "price": 28.6316,
+          "yield": 4.75
         },
         {
-          "price": 3.476,
-          "yield": 3.54
-        },
-        {
-          "price": 3.293,
-          "yield": 3.74
+          "price": 27.2,
+          "yield": 5.0
         }
       ],
-      "hold_qty": 500,
-      "market_val": 2286,
-      "hold_cost": 4.573,
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
       "summary": ""
     },
     {
-      "id": 21,
+      "id": 24,
       "name": "云南白药",
       "div": 2.602,
-      "ma250": 53.44,
-      "price": 50.21,
+      "ma250": 53.36,
+      "price": 49.33,
       "boll": {
-        "up_price": 55.14,
-        "mid_price": 50.98,
-        "low_price": 46.82
+        "up_price": 54.49,
+        "mid_price": 50.71,
+        "low_price": 46.92
       },
-      "boll_month_mid": 53.18,
+      "boll_month_mid": 53.15,
       "grids": [
         {
           "price": 52.04,
@@ -1189,123 +1307,6 @@
         {
           "price": 40.0308,
           "yield": 6.5
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-    {
-      "id": 22,
-      "name": "科创50",
-      "div": 0,
-      "ma250": 1504.47,
-      "price": 1652.97,
-      "boll": {
-        "up_price": 2086.63,
-        "mid_price": 1714.49,
-        "low_price": 1342.35
-      },
-      "boll_month_mid": 1356.15,
-      "grids": [
-        {
-          "price": 1682.2,
-          "yield": 6.0
-        },
-        {
-          "price": 1579,
-          "yield": 6.0
-        },
-        {
-          "price": 1393.74,
-          "yield": 6.0
-        },
-        {
-          "price": 1356.15,
-          "yield": 6.0
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-      {
-      "id": 23,
-      "name": "长江电力",
-      "div": 1,
-      "ma250": 26.68,
-      "price": 28.16,
-      "boll": {
-        "up_price": 29.13,
-        "mid_price": 26.92,
-        "low_price": 24.71
-      },
-      "boll_month_mid": 26.86,
-      "grids": [
-        {
-          "price": 21.05,
-          "yield": 4.75
-        },
-        {
-          "price": 22.22,
-          "yield": 4.5
-        },
-        {
-          "price": 23.53,
-          "yield": 4.25
-        },
-        {
-          "price": 25,
-          "yield": 4
-        }
-      ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
-      "summary": ""
-    },
-     {
-      "id": 24,
-      "name": "创业板",
-      "div": 0,
-      "ma250": 3.372,
-      "price": 2.512,
-      "boll": {
-        "up_price": 4.301,
-        "mid_price": 3.777,
-        "low_price": 3.253
-      },
-      "boll_month_mid": 2.941,
-      "grids": [
-        {
-          "price": 4.40,
-          "yield": 6.0
-        },
-        {
-          "price": 4.02,
-          "yield": 6.0
-        },
-        {
-          "price": 3.61,
-          "yield": 6.0
-        },
-        {
-          "price": 3.30,
-          "yield": 6.0
-        },
-        {
-          "price": 3.01,
-          "yield": 6.0
-        },
-        {
-          "price": 2.70,
-          "yield": 6.0
-        },
-        {
-          "price": 2.41,
-          "yield": 6.0
         }
       ],
       "hold_qty": 0,
