@@ -1,12 +1,12 @@
 {
-  "total_asset": 93909,
+  "total_asset": 95514,
   "stocks": [
     {
       "id": 0,
       "name": "中国平安",
       "div": 2.7,
       "ma250": 57.07,
-      "price": 52.35,
+      "price": 55.01,
       "boll": {
         "up_price": 59.19,
         "mid_price": 53.08,
@@ -65,7 +65,7 @@
       "name": "中国核电",
       "div": 0.18,
       "ma250": 8.75,
-      "price": 8.71,
+      "price": 8.84,
       "boll": {
         "up_price": 9.13,
         "mid_price": 8.81,
@@ -108,7 +108,7 @@
       "name": "云铝股份",
       "div": 1.4,
       "ma250": 26.74,
-      "price": 25.88,
+      "price": 26.13,
       "boll": {
         "up_price": 36.82,
         "mid_price": 278.92,
@@ -157,9 +157,9 @@
           "yield": 6.6
         }
       ],
-      "hold_qty": 700,
-      "market_val": 17682,
-      "hold_cost": 25.847,
+      "hold_qty": 600,
+      "market_val": 15678,
+      "hold_cost": 25.786,
       "summary": ""
     },
     {
@@ -167,7 +167,7 @@
       "name": "国电电力",
       "div": 0.241,
       "ma250": 4.89,
-      "price": 5.11,
+      "price": 5.14,
       "boll": {
         "up_price": 5.17,
         "mid_price": 4.8,
@@ -226,7 +226,7 @@
       "name": "海尔智家",
       "div": 1.16071,
       "ma250": 23.09,
-      "price": 20.86,
+      "price": 21.23,
       "boll": {
         "up_price": 21.86,
         "mid_price": 20.16,
@@ -276,8 +276,8 @@
         }
       ],
       "hold_qty": 200,
-      "market_val": 4350,
-      "hold_cost": 21.525,
+      "market_val": 4246,
+      "hold_cost": 20.634,
       "summary": ""
     },
     {
@@ -285,7 +285,7 @@
       "name": "双汇发展",
       "div": 1.45,
       "ma250": 25.36,
-      "price": 24.9,
+      "price": 25.17,
       "boll": {
         "up_price": 28.63,
         "mid_price": 25.28,
@@ -344,7 +344,7 @@
       "name": "伊利股份",
       "div": 1.38,
       "ma250": 26.12,
-      "price": 25.4,
+      "price": 25.90,
       "boll": {
         "up_price": 27.47,
         "mid_price": 25.6,
@@ -393,9 +393,9 @@
           "yield": 6.6
         }
       ],
-      "hold_qty": 300,
-      "market_val": 7345,
-      "hold_cost": 25.117,
+      "hold_qty": 200,
+      "market_val": 5180,
+      "hold_cost": 24.757,
       "summary": ""
     },
     {
@@ -403,7 +403,7 @@
       "name": "招商银行",
       "div": 2.016,
       "ma250": 38.81,
-      "price": 38.9,
+      "price": 39.50,
       "boll": {
         "up_price": 40.09,
         "mid_price": 37.59,
@@ -462,7 +462,7 @@
       "name": "东阿阿胶",
       "div": 2.7055823,
       "ma250": 49.38,
-      "price": 48.35,
+      "price": 48.89,
       "boll": {
         "up_price": 55.98,
         "mid_price": 50.18,
@@ -487,9 +487,9 @@
           "yield": 6.5
         }
       ],
-      "hold_qty": 100,
-      "market_val": 4835,
-      "hold_cost": 49.06,
+      "hold_qty": 0,
+      "market_val": 0,
+      "hold_cost": 0,
       "summary": ""
     },
     {
@@ -497,7 +497,7 @@
       "name": "华能国际",
       "div": 0.37,
       "ma250": 7.12,
-      "price": 6.6,
+      "price": 6.69,
       "boll": {
         "up_price": 8.05,
         "mid_price": 7.04,
@@ -556,7 +556,7 @@
       "name": "长江电力",
       "div": 1,
       "ma250": 26.69,
-      "price": 27.96,
+      "price": 28.21,
       "boll": {
         "up_price": 29.1,
         "mid_price": 26.91,
@@ -595,7 +595,7 @@
       "name": "中远海控",
       "div": 1.0,
       "ma250": 14.44,
-      "price": 17.01,
+      "price": 17.07,
       "boll": {
         "up_price": 16.28,
         "mid_price": 14.42,
@@ -654,7 +654,7 @@
       "name": "中国石油",
       "div": 0.47,
       "ma250": 10.01,
-      "price": 11.2,
+      "price": 11.19,
       "boll": {
         "up_price": 12.41,
         "mid_price": 10.61,
@@ -713,7 +713,7 @@
       "name": "中国海油",
       "div": 1.45,
       "ma250": 31.23,
-      "price": 33.86,
+      "price": 33.51,
       "boll": {
         "up_price": 40.49,
         "mid_price": 33.21,
@@ -772,7 +772,7 @@
       "name": "中国神华",
       "div": 2.01,
       "ma250": 41.81,
-      "price": 46.41,
+      "price": 47.17,
       "boll": {
         "up_price": 49.15,
         "mid_price": 44.21,
@@ -831,7 +831,7 @@
       "name": "科创50",
       "div": 0,
       "ma250": 1509.27,
-      "price": 1653.56,
+      "price": 1604.59,
       "boll": {
         "up_price": 2085.84,
         "mid_price": 1713.06,
@@ -866,7 +866,7 @@
       "name": "沪深300",
       "div": 0.123,
       "ma250": 4.666,
-      "price": 4.68,
+      "price": 4.616,
       "price_decimals": 3,
       "boll": {
         "up_price": 5.007,
@@ -918,7 +918,7 @@
       "name": "创业板",
       "div": 0,
       "ma250": 3.377,
-      "price": 3.56,
+      "price": 3.419,
       "price_decimals": 3,
       "boll": {
         "up_price": 4.298,
@@ -966,7 +966,7 @@
       "name": "云天化",
       "div": 1.4,
       "ma250": 30.99,
-      "price": 29.67,
+      "price": 29.78,
       "boll": {
         "up_price": 35.09,
         "mid_price": 30.82,
@@ -1009,7 +1009,7 @@
       "name": "工商银行",
       "div": 0.3103,
       "ma250": 7.38,
-      "price": 7.77,
+      "price": 7.90,
       "boll": {
         "up_price": 7.92,
         "mid_price": 7.4,
@@ -1064,7 +1064,7 @@
       "name": "交通银行",
       "div": 0.3247,
       "ma250": 6.8,
-      "price": 7.12,
+      "price": 7.16,
       "boll": {
         "up_price": 7.21,
         "mid_price": 6.72,
@@ -1123,7 +1123,7 @@
       "name": "中国移动",
       "div": 4.7037,
       "ma250": 97.66,
-      "price": 96.25,
+      "price": 98.86,
       "boll": {
         "up_price": 100,
         "mid_price": 93.75,
@@ -1182,7 +1182,7 @@
       "name": "中国电信",
       "div": 0.272,
       "ma250": 6.26,
-      "price": 6.43,
+      "price": 6.45,
       "boll": {
         "up_price": 6.59,
         "mid_price": 5.96,
@@ -1241,7 +1241,7 @@
       "name": "海天味业",
       "div": 1.36,
       "ma250": 36.66,
-      "price": 35.05,
+      "price": 35.96,
       "boll": {
         "up_price": 40.41,
         "mid_price": 35.92,
@@ -1288,7 +1288,7 @@
       "name": "云南白药",
       "div": 2.602,
       "ma250": 53.36,
-      "price": 49.33,
+      "price": 50.00,
       "boll": {
         "up_price": 54.49,
         "mid_price": 50.71,
