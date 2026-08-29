@@ -106,7 +106,7 @@
     {
       "id": 2,
       "name": "云铝股份",
-      "div": 1.45,
+      "div": 1.5,
       "ma250": 26.94,
       "price": 27.23,
       "boll": {
@@ -117,36 +117,28 @@
       "boll_month_mid": 22.68,
       "grids": [
         {
-          "price": 41.4286,
-          "yield": 3.5
-        },
-        {
-          "price": 38.6667,
-          "yield": 3.75
-        },
-        {
-          "price": 36.25,
+          "price": 37.52,
           "yield": 4.0
         },
         {
-          "price": 34.1176,
-          "yield": 4.25
-        },
-        {
-          "price": 32.2222,
+          "price": 33.32,
           "yield": 4.5
         },
         {
-          "price": 26.3636,
+          "price": 30.04,
+          "yield": 5
+        },
+        {
+          "price": 27.27,
           "yield": 5.5
         },
         {
-          "price": 25.4386,
-          "yield": 5.7
+          "price": 25.05,
+          "yield": 5.99
         },
         {
-          "price": 24.1667,
-          "yield": 6.0
+          "price": 22.98,
+          "yield": 6.53
         }
       ],
       "hold_qty": 600,
@@ -364,6 +356,10 @@
           "price": 30.6667,
           "yield": 4.5
         },
+		 {
+          "price": 27.50,
+          "yield": 5.02
+        },
         {
           "price": 25.0909,
           "yield": 5.5
@@ -463,6 +459,10 @@
       "boll_month_mid": 50.53,
       "grids": [
         {
+          "price": 60.05,
+          "yield": 4.5
+        },
+		{
           "price": 54.1116,
           "yield": 5.0
         },
@@ -471,12 +471,12 @@
           "yield": 5.5
         },
         {
-          "price": 45.093,
-          "yield": 6.0
+          "price": 46.12,
+          "yield": 5.87
         },
         {
-          "price": 41.6243,
-          "yield": 6.5
+          "price": 45.093,
+          "yield": 6.0
         }
       ],
       "hold_qty": 0,
@@ -1214,44 +1214,24 @@
     },
     {
       "id": 23,
-      "name": "海天味业",
-      "div": 1.36,
-      "ma250": 36.62,
-      "price": 34.12,
+      "name": "华润江中",
+      "div": 1.38,
+      "ma250": 23.05,
+      "price": 24.28,
       "boll": {
-        "up_price": 39.58,
-        "mid_price": 35.60,
-        "low_price": 31.61
+        "up_price": 26.83,
+        "mid_price": 24.13,
+        "low_price": 21.43
       },
-      "boll_month_mid": 37.37,
+      "boll_month_mid": 22.08,
       "grids": [
         {
-          "price": 38.8571,
-          "yield": 3.5
+          "price": 21.10,
+          "yield": 6.54
         },
         {
-          "price": 36.2667,
-          "yield": 3.75
-        },
-        {
-          "price": 34,
-          "yield": 4.0
-        },
-        {
-          "price": 32,
-          "yield": 4.25
-        },
-        {
-          "price": 30.2222,
-          "yield": 4.5
-        },
-        {
-          "price": 28.6316,
-          "yield": 4.75
-        },
-        {
-          "price": 27.2,
-          "yield": 5.0
+          "price": 19.69,
+          "yield": 7.01
         }
       ],
       "hold_qty": 0,
