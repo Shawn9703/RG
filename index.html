@@ -396,7 +396,9 @@
                     const list = (data.stocks || []).map((s, i) => {
                         // 强制按数组顺序重新编号 id：保证连续、不重复、不缺号，
                         // 无论源 JSON 是否有重复/缺号，UI 的 :key 都安全。
-                        return { ...s, id: i };
+                        // 备份 base_price（锁定原始市价）：持仓市值/现金按它算，
+                        // 不受手动调低 price 看股息率的影响。
+                        return { ...s, id: i, base_price: s.price || 0 };
                     });
                     stocks.value = list;
                     loading.value = false;
@@ -453,7 +455,9 @@
                         stocks: stocks.value.map(s => ({
                             ...s,
                             // 现价四舍五入保留对应小数位，避免浮点脏数据
-                            price: roundPrice(s)
+                            price: roundPrice(s),
+                            // 保留锁定后的原始市价，确保下次加载市值/现金稳定
+                            base_price: s.base_price || roundPrice(s)
                         }))
                     };
                     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -473,11 +477,14 @@
                     return Math.round((stock.price || 0) * factor) / factor;
                 };
                 
-                // 持仓总市值（动态，随股价实时变）
+                // 持仓总市值：用 base_price（加载时的原始市价）计算，锁定不变。
+                // 现金 = 总资产 - 持仓市值，若用手动可调的 price 会随调价波动，
+                // 导致"调低现价看股息率"时市值缩水、现金凭空变多。
+                // price 只用于算股息率，不影响资产/现金。
                 const totalMarketVal = computed(() => {
                     return stocks.value.reduce((sum, s) => {
                         const qty = s.hold_qty || 0;
-                        const price = s.price || 0;
+                        const price = s.base_price || s.price || 0;
                         return sum + qty * price;
                     }, 0);
                 });
