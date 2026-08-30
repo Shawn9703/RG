@@ -83,7 +83,7 @@
             display: flex; justify-content: space-between; align-items: center; 
             border: 1px solid #e2e8f0;
         }
-        .price-control { display: flex; align-items: center; gap: 14px; }
+        .price-control { display: flex; align-items: center; gap: 10px; }
         .price-btn { 
             width: 36px; height: 36px; background: white; 
             border: 1.5px solid #e2e8f0; border-radius: 8px; 
@@ -91,10 +91,22 @@
             cursor: pointer; color: #475569; user-select: none; transition: all 0.15s; 
         }
         .price-btn:active { background: #e2e8f0; transform: scale(0.92); }
-        .current-price { font-size: 22px; font-weight: 700; font-family: 'SF Mono', monospace; color: #0f172a; min-width: 80px; text-align: center; }
+        /* 现价输入框（替换原来的纯展示） */
+        .current-price-input { 
+            width: 96px; font-size: 20px; font-weight: 700; 
+            font-family: 'SF Mono', monospace; color: #0f172a; 
+            text-align: center; border: 1.5px solid #cbd5e1; border-radius: 8px; 
+            padding: 6px 4px; outline: none; background: white;
+            transition: border-color 0.15s;
+        }
+        .current-price-input:focus { border-color: var(--primary-red); }
+        .current-price-input.input-error { border-color: var(--primary-red); background: #fef2f2; }
+        .price-unit { font-size: 12px; color: var(--text-sub); margin-left: 2px; }
         .current-yield-box { text-align: right; }
         .current-yield-label { font-size: 11px; color: var(--text-sub); margin-bottom: 2px; }
         .current-yield-val { font-size: 20px; font-weight: 700; color: var(--primary-red); }
+        .saved-hint { font-size: 11px; color: var(--primary-green); margin-top: 3px; opacity: 0; transition: opacity 0.3s; }
+        .saved-hint.show { opacity: 1; }
         
         .boll-container { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-bottom: 16px; }
         .boll-box { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 4px; text-align: center; min-width: 0; }
@@ -173,6 +185,14 @@
             border-radius: 10px; background: #fff; cursor: pointer;
         }
         .btn-refresh:active { background: #f0f0f0; }
+
+        /* 导出按钮 */
+        .btn-export {
+            padding: 0 14px; font-size: 14px; border: 1px solid #ddd;
+            border-radius: 10px; background: var(--primary-green); color: #fff;
+            cursor: pointer; white-space: nowrap;
+        }
+        .btn-export:active { opacity: 0.85; }
     </style>
 </head>
 <body>
@@ -222,6 +242,7 @@
         <div class="toolbar">
             <input type="text" class="search-input" v-model="searchQuery" placeholder="🔍 搜索股票名称..." />
             <button class="btn-clear" @click="searchQuery = ''">清空</button>
+            <button class="btn-export" @click="exportJson" title="导出当前数据（含修改后的现价）">📥 导出</button>
             <button class="btn-import-toolbar" @click="$refs.fileInput2 && $refs.fileInput2.click()">📂 导入</button>
             <button class="btn-refresh" @click="fetchData" title="重新从 stock_data.json 加载">🔄</button>
             <input type="file" accept=".json" @change="onFileChange" style="display:none" ref="fileInput2">
@@ -241,12 +262,24 @@
             <div class="price-dashboard">
                 <div class="price-control">
                     <div class="price-btn" @click="adjustPriceDown(stock)" :title="'降价' + getStep(stock)">▼</div>
-                    <div class="current-price">{{ stock.price.toFixed(getDecimals(stock)) }}</div>
+                    <!-- 现价：改为可直接输入的输入框，v-model.number 实时同步到 stock.price，股息率自动重算 -->
+                    <input
+                        class="current-price-input"
+                        type="number"
+                        step="any"
+                        inputmode="decimal"
+                        :class="{ 'input-error': priceInputError[stock.id] }"
+                        v-model.number="stock.price"
+                        @input="onPriceInput(stock)"
+                        :placeholder="'现价'"
+                    />
+                    <span class="price-unit">元</span>
                     <div class="price-btn" @click="adjustPriceUp(stock)" :title="'加价' + getStep(stock)">▲</div>
                 </div>
                 <div class="current-yield-box">
                     <div class="current-yield-label">当前股息率</div>
                     <div class="current-yield-val">{{ calcYield(stock.div, stock.price) }}%</div>
+                    <div class="saved-hint" :class="{ show: savedHint[stock.id] }">✓ 已应用</div>
                 </div>
             </div>
             
@@ -279,11 +312,11 @@
             </div>
             
             <div class="grid-section">
-                <h4>🎯 网格档位（价格 ≤ 现价即高亮激活）</h4>
+                <h4>🎯 网格档位（当前股息率 ≥ 档位股息率即高亮激活）</h4>
                 <table class="grid-table" v-if="stock.grids && stock.grids.length > 0">
                     <thead>
                         <tr>
-                            <th style="width:40px;"></th>
+                            <th style="width:40px;">状态</th>
                             <th style="text-align:left;">目标股价</th>
                             <th>对应股息率</th>
                             <th>距现价</th>
@@ -342,7 +375,7 @@
     </div>
     
     <script>
-        const { createApp, ref, computed } = Vue;
+        const { createApp, ref, computed, reactive } = Vue;
 
         createApp({
             setup() {
@@ -353,12 +386,26 @@
                 const loading = ref(true);
                 const loadError = ref('');
 
+                // 每只用股的输入框校验状态 & "已应用"提示
+                const priceInputError = reactive({});
+                const savedHint = reactive({});
+
                 // ---------- 加载 JSON ----------
                 const loadFromJson = (data) => {
                     totalAsset.value = data.total_asset || 94683;
-                    stocks.value = data.stocks || [];
+                    const list = (data.stocks || []).map((s, i) => {
+                        // 强制按数组顺序重新编号 id：保证连续、不重复、不缺号，
+                        // 无论源 JSON 是否有重复/缺号，UI 的 :key 都安全。
+                        return { ...s, id: i };
+                    });
+                    stocks.value = list;
                     loading.value = false;
                     loadError.value = '';
+                    // 重新初始化辅助状态（按新 id）
+                    list.forEach(s => {
+                        priceInputError[s.id] = false;
+                        savedHint[s.id] = false;
+                    });
                 };
 
                 const fetchData = () => {
@@ -397,6 +444,33 @@
                     reader.readAsText(file);
                     // 清空 input，允许重复选同一文件
                     e.target.value = '';
+                };
+
+                // ---------- 导出 JSON（把修改后的现价一并保存） ----------
+                const exportJson = () => {
+                    const data = {
+                        total_asset: totalAsset.value,
+                        stocks: stocks.value.map(s => ({
+                            ...s,
+                            // 现价四舍五入保留对应小数位，避免浮点脏数据
+                            price: roundPrice(s)
+                        }))
+                    };
+                    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'stock_data.json';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                };
+
+                const roundPrice = (stock) => {
+                    const dec = getDecimals(stock);
+                    const factor = Math.pow(10, dec);
+                    return Math.round((stock.price || 0) * factor) / factor;
                 };
                 
                 // 持仓总市值（动态，随股价实时变）
@@ -437,6 +511,22 @@
                     return ((div / price) * 100).toFixed(2);
                 };
                 
+                // 现价输入框实时校验：仅允许正数，非法时标红但不阻断
+                const onPriceInput = (stock) => {
+                    const v = stock.price;
+                    if (v === '' || v === null || isNaN(v) || v <= 0) {
+                        priceInputError[stock.id] = true;
+                    } else {
+                        priceInputError[stock.id] = false;
+                        // 输入合法时短暂显示"已应用"提示，确认股息率已联动
+                        savedHint[stock.id] = true;
+                        clearTimeout(savedHint['_timer_' + stock.id]);
+                        savedHint['_timer_' + stock.id] = setTimeout(() => {
+                            savedHint[stock.id] = false;
+                        }, 1200);
+                    }
+                };
+
                 // 步长随小数位自适应：2位→0.01，3位→0.001
                 const getStep = (stock) => {
                     const dec = getDecimals(stock);
@@ -448,22 +538,32 @@
                     const factor = Math.pow(10, dec);
                     const minPrice = Math.pow(10, -dec); // 2位→0.01, 3位→0.001
                     stock.price = Math.max(minPrice, Math.round((stock.price + delta) * factor) / factor);
+                    priceInputError[stock.id] = false;
                 };
                 
                 const adjustPriceUp = (stock) => adjustPrice(stock, getStep(stock));
                 const adjustPriceDown = (stock) => adjustPrice(stock, -getStep(stock));
                 
+                // 当前股息率（现价口径），供网格高亮统一使用。
+                // 统一按 2 位小数精度比较，与页面显示、与 grid.yield 的精度保持一致，避免浮点误差导致边界档位误判。
+                const currentYieldOf = (stock) => {
+                    const price = stock.price;
+                    if (!price || price <= 0 || !stock.div) return -1;
+                    return Math.round((stock.div / price) * 100 * 100) / 100;
+                };
+
+                // 网格高亮：只看【当前股息率】。
+                // 规则：现价算出的股息率 >= 该档股息率(grid.yield) → 视为已进入/触发该档，高亮激活。
+                // 这样改完现价后，所有"股息率足够高"的档位一起亮起，语义清晰、单调。
                 const getGridRowClass = (stock, grid) => {
-                    const eps = Math.pow(10, -getDecimals(stock)) / 2;
-                    if (Math.abs(stock.price - grid.price) < eps) return 'grid-active';
-                    if (stock.price <= grid.price) return 'grid-active';
+                    const y = currentYieldOf(stock);
+                    if (y < 0) return '';
+                    if (y >= grid.yield) return 'grid-active';
                     return '';
                 };
-                
+
                 const getDotClass = (stock, grid) => {
-                    const eps = Math.pow(10, -getDecimals(stock)) / 2;
-                    if (Math.abs(stock.price - grid.price) < eps) return 'current';
-                    if (stock.price <= grid.price) return 'active';
+                    if (currentYieldOf(stock) >= grid.yield) return 'active';
                     return '';
                 };
                 
@@ -509,10 +609,11 @@
                 return {
                     totalAsset, totalMarketVal, totalPositionPct, getPositionPct,
                     stocks, filteredStocks, searchQuery,
+                    priceInputError, savedHint,
                     calcYield, getDecimals, getStep, adjustPrice, adjustPriceUp, adjustPriceDown,
                     getGridRowClass, getDotClass, getDistance, getDistanceStyle, formatNumber,
                     getMa250Deviation, getMa250Style,
-                    loading, loadError, fetchData, onFileChange
+                    loading, loadError, fetchData, onFileChange, onPriceInput, exportJson
                 };
             }
         }).mount('#app');
