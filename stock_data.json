@@ -948,9 +948,9 @@
           "yield": 6.0
         }
       ],
-      "hold_qty": 0,
-      "market_val": 0,
-      "hold_cost": 0,
+      "hold_qty": 600,
+      "market_val": 1983,
+      "hold_cost": 3.319,
       "summary": ""
     },
 	{
